@@ -563,13 +563,6 @@ footer .fline b{color:var(--ink); font-weight:700;}
 <!-- 7. ΠΛΑΝΑ B-ROLL -->
 <section id="broll"><div class="wrap">
   <h2>Storyboard</h2>
-
-  <div class="toolbar">
-    <button class="fbtn on" data-f="all">Όλα</button>
-    <button class="fbtn" data-f="shoot">Γύρισμα</button>
-    <button class="fbtn" data-f="post">Post / γραφικά</button>
-    <div class="search"><input type="text" id="bsearch" placeholder="Αναζήτηση ID, τοποθεσία..."></div>
-  </div>
   <div class="broll-grid" id="broll-grid"></div>
 </div></section>
 <!-- 8. ΜΟΥΣΙΚΗ -->
@@ -687,11 +680,8 @@ const BR = [
 ];
 
 const grid = document.getElementById('broll-grid');
-const search = document.getElementById('bsearch');
-let filt = 'all';
 
 function render(){
-  const q = search.value.trim().toLowerCase();
   grid.innerHTML = '';
   let shown = 0;
   const kadros = BR.filter(b => b.t === 'kadro');
@@ -710,12 +700,6 @@ function render(){
   }
   for (const b of BR){
     if (b.t === 'kadro') continue;
-    if (filt === 'shoot' && b.t !== 'shoot') continue;
-    if (filt === 'post' && b.t !== 'post') continue;
-    if (q){
-      const hay = (b.id + ' ' + (b.loc||'') + ' ' + (b.d||'') + ' ' + (b.mk||'')).toLowerCase();
-      if (!hay.includes(q)) continue;
-    }
     const el = document.createElement('figure');
     el.className = 'bcard';
     el.dataset.id = b.id;
@@ -730,15 +714,6 @@ function render(){
   }
 }
 
-document.querySelectorAll('.fbtn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
-    btn.classList.add('on');
-    filt = btn.dataset.f;
-    render();
-  });
-});
-search.addEventListener('input', render);
 render();
 
 // Google Photos lightbox
@@ -761,7 +736,7 @@ function lbShow(){
   lb.classList.add('on');
 }
 function lbOpen(id){
-  lbList = BR.filter(b => b.t === 'kadro' || !((filt==='shoot' && b.t!=='shoot') || (filt==='post' && b.t!=='post')));
+  lbList = BR;
   lbIdx = lbList.findIndex(b => b.id === id);
   if (lbIdx >= 0) lbShow();
 }
