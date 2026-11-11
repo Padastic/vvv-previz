@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Τι χρειάζεται να εξασφαλίσει ο Δήμος για τα γυρίσματα · VVV Smart Waste</title>
+<style>
+@font-face{font-family:'Cinobo Display'; src:url('fonts/CinoboDisplay-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap;}
+@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap;}
+@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap;}
+@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap;}
+@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap;}
+:root{
+  --bg:#0A0A0C;
+  --surface:#14151A;
+  --card-bg:rgba(25,27,33,.75);
+  --ink:#FFFFFF;
+  --ink2:#D1D5DB;
+  --muted:#9CA3AF;
+  --line:rgba(255,255,255,.12);
+  --accent:#1c69d4;
+  --accent-light:#3b82f6;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Noi Grotesk',sans-serif;
+  font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  padding:clamp(32px,5vw,64px) 0 clamp(64px,8vw,100px);
+}
+.wrap{max-width:960px; margin:0 auto; padding:0 clamp(20px,4vw,40px);}
+
+.back-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  color:var(--muted); text-decoration:none; font-size:14px; font-weight:600;
+  padding:8px 16px; border-radius:999px; background:rgba(255,255,255,.06);
+  border:1px solid var(--line); transition:all .25s ease; margin-bottom:32px;
+}
+.back-btn:hover{
+  color:#fff; background:rgba(255,255,255,.12); transform:translateX(-3px);
+}
+.back-btn svg{width:16px; height:16px; fill:currentColor;}
+
+.doc-header{
+  border-bottom:1px solid var(--line);
+  padding-bottom:28px; margin-bottom:36px;
+}
+.doc-eyebrow{
+  font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent-light);
+  font-weight:700; margin:0 0 12px;
+}
+h1{
+  font-family:'Cinobo Display',sans-serif;
+  font-size:clamp(28px,4.5vw,46px); line-height:1.15;
+  color:#fff; margin:0 0 16px; font-weight:400;
+}
+.doc-lead{
+  font-size:16px; color:var(--ink2); line-height:1.6; margin:0 0 12px;
+}
+.doc-callout{
+  background:rgba(28,105,212,.12); border-left:3px solid var(--accent-light);
+  padding:14px 18px; border-radius:0 10px 10px 0; margin-top:16px; font-size:14.5px; color:#fff;
+}
+
+.section-card{
+  background:var(--card-bg); border:1px solid var(--line);
+  border-radius:16px; padding:24px 26px; margin-bottom:22px;
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+}
+.section-card h2{
+  font-family:'Cinobo Display',sans-serif;
+  font-size:20px; color:#fff; margin:0 0 14px; font-weight:400;
+  display:flex; align-items:baseline; gap:10px;
+}
+.section-card h2 .num{
+  color:var(--accent-light); font-family:'Noi Grotesk',sans-serif; font-size:16px; font-weight:700;
+}
+.section-card p{margin:0 0 10px; color:var(--ink2); font-size:14.5px;}
+.section-card p:last-child{margin-bottom:0;}
+.section-card ul{
+  margin:10px 0 14px 20px; padding:0; color:var(--ink2); font-size:14.5px;
+}
+.section-card li{margin-bottom:8px; line-height:1.55;}
+.section-card li:last-child{margin-bottom:0;}
+.section-card b{color:#fff;}
+
+.duty-box{
+  background:rgba(255,255,255,.04); border:1px dashed rgba(255,255,255,.2);
+  border-radius:14px; padding:20px 22px; margin-top:32px;
+}
+.duty-box h3{
+  font-family:'Cinobo Display',sans-serif; font-size:18px; color:#fff; margin:0 0 14px; font-weight:400;
+}
+.duty-box ul{margin:0 0 0 20px; padding:0; color:var(--ink2); font-size:14px;}
+.duty-box li{margin-bottom:8px;}
+
+footer{
+  margin-top:60px; padding-top:24px; border-top:1px solid var(--line);
+  text-align:center; font-size:13px; color:var(--muted);
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a href="index.html#programma" class="back-btn">
+    <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    Πίσω στην παρουσίαση
+  </a>
+
+  <header class="doc-header">
+    <div class="doc-eyebrow">Οδηγός Συντονισμού · Liaison Δήμου ΒΒΒ</div>
+    <h1>Τι χρειάζεται να εξασφαλίσει ο Δήμος για τα γυρίσματα</h1>
+    <p class="doc-lead">Για την παραγωγή απαιτούνται δύο ημέρες γυρισμάτων. Οι τελικές ημερομηνίες, ώρες και τοποθεσίες θα συμφωνηθούν με την παραγωγή.</p>
+    <div class="doc-callout">
+      Παρακαλούμε να οριστεί ένας υπεύθυνος του Δήμου που θα συγκεντρώσει τις παρακάτω επιβεβαιώσεις και θα βρίσκεται μαζί μας και τις δύο ημέρες.
+    </div>
+  </header>
+
+  <!-- 1 -->
+  <div class="section-card">
+    <h2><span class="num">1.</span> Τέσσερα πρόσωπα για τις συνεντεύξεις</h2>
+    <p>Να επιβεβαιωθεί η συμμετοχή:</p>
+    <ul>
+      <li><b>Του Δημάρχου.</b></li>
+      <li><b>Ενός υπευθύνου Καθαριότητας</b> που γνωρίζει τη λειτουργία και τα αποτελέσματα του συστήματος.</li>
+      <li><b>Ενός εργαζομένου αποκομιδής</b> που χρησιμοποιεί το σύστημα στην καθημερινή εργασία του.</li>
+      <li><b>Ενός εκπροσώπου πολιτών ή εκπαιδευτικού</b> που μπορεί να μιλήσει για την καθημερινότητα στη γειτονιά.</li>
+    </ul>
+    <p>Για κάθε πρόσωπο χρειαζόμαστε ονοματεπώνυμο, ακριβή ιδιότητα και επιβεβαίωση διαθεσιμότητας στο συμφωνημένο ραντεβού.</p>
+    <p>Οι ερωτήσεις θα σταλούν από την παραγωγή για έγκριση και ενημέρωση των συμμετεχόντων. Κάθε ομιλητής πρέπει να βρίσκεται στον χώρο μία ώρα πριν από την τελική ώρα λήψης.</p>
+    <p>Οι συμμετέχοντες να έχουν δύο απλές, μονόχρωμες επιλογές ρούχων, χωρίς μικρά σχέδια ή έντονα λογότυπα. Ο εργαζόμενος να διαθέτει καθαρή στολή και τα απαιτούμενα μέσα προστασίας.</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section-card">
+    <h2><span class="num">2.</span> Διαθέσιμοι χώροι, έτοιμοι πριν φτάσει το συνεργείο</h2>
+    <p>Να συμφωνηθούν και να δεσμευτούν:</p>
+    <ul>
+      <li>Μία ήσυχη αίθουσα στο <b>Δημαρχείο</b> για τον Δήμαρχο.</li>
+      <li>Ένας κατάλληλος χώρος υπηρεσίας για τον <b>υπεύθυνο Καθαριότητας</b>.</li>
+      <li>Ένα ασφαλές σημείο στο <b>αμαξοστάσιο</b> για τον εργαζόμενο, με όχημα στο φόντο.</li>
+      <li>Ένας ήσυχος χώρος για τον <b>εκπρόσωπο πολιτών ή εκπαιδευτικό</b>. Αν επιλεγεί σχολείο, να έχει επιβεβαιωθεί η πρόσβαση από τον αρμόδιο.</li>
+    </ul>
+    <p>Για κάθε χώρο να υπάρχει συγκεκριμένος άνθρωπος που θα ανοίξει εγκαίρως και θα εξασφαλίσει πρόσβαση για στήσιμο, λήψη και απομάκρυνση εξοπλισμού.</p>
+    <p>Κατά τις συνεντεύξεις να αποφεύγονται διελεύσεις, συζητήσεις και τηλεφωνικές διακοπές. Να υπάρχει δυνατότητα προσωρινής διακοπής θορυβωδών συσκευών, όπου χρειάζεται.</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="section-card">
+    <h2><span class="num">3.</span> Καθαριότητα σε όλους τους χώρους και στα αντικείμενα που θα κινηματογραφηθούν</h2>
+    <p>Ο υπεύθυνος του Δήμου να αναθέσει τον καθαρισμό πριν από τα γυρίσματα και να ελέγξει ότι ολοκληρώθηκε.</p>
+    <p>Συγκεκριμένα:</p>
+    <ul>
+      <li><b>Στο Δημαρχείο και στις υπόλοιπες αίθουσες:</b> καθαρά δάπεδα, τραπέζια, καρέκλες και ορατές επιφάνειες. Άδειοι κάδοι απορριμμάτων. Απομάκρυνση σκουπιδιών, λερωμένων ποτηριών, συσκευασιών, κουτιών, άχρηστων χαρτιών, ειδών καθαρισμού και προσωπικών αντικειμένων από το σημείο λήψης και το φόντο.</li>
+      <li><b>Στο αμαξοστάσιο:</b> καθαρό και τακτοποιημένο σημείο συνέντευξης και προετοιμασίας οχήματος. Απομάκρυνση άσχετων αντικειμένων και απορριμμάτων από τον χώρο που θα φανεί.</li>
+      <li><b>Στο απορριμματοφόρο:</b> πλυμένο εξωτερικό και καθαρή καμπίνα, ιδιαίτερα γύρω από το tablet και τα σημεία που θα κινηματογραφηθούν.</li>
+      <li><b>Στους επιλεγμένους κάδους:</b> καθαρό εξωτερικό, καπάκια κλειστά όταν δεν χρησιμοποιούνται και χωρίς πεταμένα απορρίμματα γύρω τους. Το περιεχόμενο των κάδων που θα αδειάσουν στο γύρισμα παραμένει διαθέσιμο για την πραγματική αποκομιδή.</li>
+      <li><b>Στα εξωτερικά σημεία:</b> καθαρά πεζοδρόμια και άμεσο περιβάλλον λήψης, χωρίς συγκεντρωμένα σκουπίδια ή υπολείμματα καθαρισμού.</li>
+    </ul>
+    <p>Ο καθαρισμός να έχει ολοκληρωθεί πριν από την άφιξη του συνεργείου. Να υπάρχει διαθέσιμο άτομο για διορθωτικό καθαρισμό αν προκύψει ανάγκη κατά τη διάρκεια της ημέρας.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="section-card">
+    <h2><span class="num">4.</span> Ένα απορριμματοφόρο, πλήρωμα και συγκεκριμένο δρομολόγιο</h2>
+    <p>Η υπηρεσία Καθαριότητας να διαθέσει:</p>
+    <ul>
+      <li><b>Ένα κατάλληλο απορριμματοφόρο με οδηγό και πλήρωμα.</b> Η τελική σύνθεση, εντός των προβλεπόμενων δύο έως τεσσάρων ατόμων συνολικά, να επιβεβαιωθεί με την παραγωγή.</li>
+      <li>Όχημα για το φόντο της συνέντευξης του εργαζομένου την πρώτη ημέρα.</li>
+      <li>Όχημα και πλήρωμα για προετοιμασία βάρδιας και πραγματική αποκομιδή τη δεύτερη ημέρα.</li>
+      <li>Συμφωνημένο δρομολόγιο με συγκεκριμένες στάσεις και θέσεις κάδων.</li>
+    </ul>
+    <p>Στο δρομολόγιο χρειάζονται:</p>
+    <ul>
+      <li>Κάδοι με διαφορετική πληρότητα.</li>
+      <li>Ένας κάδος με αισθητήρα προσβάσιμο για κοντινή λήψη.</li>
+      <li>Ένας καφέ κάδος βιοαποβλήτων.</li>
+      <li>Σημεία όπου μπορούμε να καταγράψουμε με ασφάλεια προσέγγιση, εκκένωση και συνεργασία οδηγού–πληρώματος.</li>
+    </ul>
+    <p>Οι επιλεγμένοι κάδοι δεν πρέπει να αδειάσουν πριν φτάσει το κινηματογραφικό συνεργείο. Η ώρα αναχώρησης και η σειρά των στάσεων θα συμφωνηθούν εκ των προτέρων.</p>
+    <p>Αν χρειαστεί δημοτικό όχημα για λήψεις στην EmDoT, θα σταλεί χωριστό, συγκεκριμένο αίτημα με ώρα και διάρκεια διάθεσης.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section-card">
+    <h2><span class="num">5.</span> Τοποθεσίες και πρόσβαση</h2>
+    <p>Ο υπεύθυνος να προτείνει ακριβή σημεία για τις εξωτερικές λήψεις: πλατείες, παραλιακό μέτωπο, γειτονιά, εμπορικό δρόμο και θέσεις κάδων.</p>
+    <p>Για όσα επιλεγούν από την παραγωγή, να εξασφαλιστούν:</p>
+    <ul>
+      <li>Ακριβής τοποθεσία σε χάρτη και δυνατότητα πρόσβασης του συνεργείου.</li>
+      <li>Οι απαιτούμενες συνεννοήσεις και εγκρίσεις από τους αρμοδίους.</li>
+      <li>Έγκαιρη ενημέρωση καταστημάτων και κατοίκων στους δρόμους όπου θα γίνουν οργανωμένες λήψεις.</li>
+      <li>Συνεννόηση για στάθμευση και εκφόρτωση εξοπλισμού, όπου χρειάζεται.</li>
+    </ul>
+  </div>
+
+  <!-- 6 -->
+  <div class="section-card">
+    <h2><span class="num">6.</span> Στοιχεία που χρειαζόμαστε πριν από την παραγωγή</h2>
+    <p>Να αποσταλούν συγκεντρωτικά:</p>
+    <ul>
+      <li>Τα ονόματα και οι ιδιότητες των τεσσάρων ομιλητών.</li>
+      <li>Οι επιβεβαιωμένοι χώροι και τα σημεία γυρίσματος.</li>
+      <li>Τα στοιχεία υπευθύνου Δήμου, αμαξοστασίου και πληρώματος.</li>
+      <li>Το συμφωνημένο δρομολόγιο.</li>
+      <li>Το επίσημο λογότυπο του Δήμου σε υψηλή ανάλυση.</li>
+      <li>Επιβεβαίωση ή διόρθωση των στοιχείων που θα εμφανιστούν στην ταινία: αριθμός κάδων, επέκταση, μείωση χιλιομέτρων, ρεύματα διαλογής και εκτροπή από την ταφή. Η παραγωγή θα στείλει τις συγκεκριμένες διατυπώσεις προς έλεγχο.</li>
+    </ul>
+  </div>
+
+  <!-- Τι κάνει ο υπεύθυνος -->
+  <div class="duty-box">
+    <h3>Τι κάνει ο υπεύθυνος τις ημέρες των γυρισμάτων</h3>
+    <ul>
+      <li>Βρίσκεται μαζί μας σε όλη τη διάρκεια.</li>
+      <li>Ελέγχει πριν από την άφιξή μας ότι ο χώρος είναι ανοικτός, καθαρός και έτοιμος.</li>
+      <li>Επιβεβαιώνει ότι ο επόμενος ομιλητής, χώρος ή όχημα είναι διαθέσιμος στην ώρα του.</li>
+      <li>Συντονίζει την υπηρεσία Καθαριότητας και το πλήρωμα στα συμφωνημένα σημεία.</li>
+      <li>Φροντίζει για άμεση διόρθωση προβλημάτων πρόσβασης, καθαριότητας ή θορύβου.</li>
+      <li>Ενημερώνει αμέσως την παραγωγή για οποιαδήποτε αλλαγή.</li>
+      <li>Πριν αποχωρήσει ομιλητής ή αποδεσμευτεί όχημα, επιβεβαιώνει μαζί μας ότι ολοκληρώθηκαν οι λήψεις.</li>
+    </ul>
+  </div>
+
+  <footer>
+    <a href="index.html#programma" class="back-btn" style="margin-bottom:16px;">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      Πίσω στην παρουσίαση
+    </a>
+    <div>© 2026, Atheaton Media, All Rights Reserved</div>
+  </footer>
+</div>
+
+</body>
+</html>
