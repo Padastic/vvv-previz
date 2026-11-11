@@ -1,322 +1,322 @@
-<!DOCTYPE html>
-<html lang="el">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Δήμος Βάρης, Βούλας, Βουλιαγμένης · VVV Smart Waste</title>
-<style>
-@font-face{font-family:'Cinobo Display'; src:url('fonts/CinoboDisplay-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap;}
-@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap;}
-@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap;}
-@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap;}
-@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap;}
-:root{
-  --bg:#FFFFFF; --surface:#FFFFFF;
-  --ink:#262626; --ink2:#757575; --muted:#757575;
-  --line:#E8E8E8; --line-soft:#F0F0F0;
-  --accent:#1c69d4; --accent-ink:#0653b6;
-}
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  margin:0; background:var(--bg); color:var(--ink);
-  font-family:'Noi Grotesk',sans-serif;
-  font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-}
-::selection{background:rgba(28,105,212,.22); color:var(--ink);}
-.wrap{max-width:1500px; margin:0 auto; padding:0 clamp(20px,4vw,56px);}
-
-header.doc{padding:clamp(44px,7vw,92px) 0 0;}
-.eyebrow{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent-ink); font-weight:700; margin:0 0 20px;}
-h1{font-size:clamp(34px,5.4vw,62px); line-height:1.04; margin:0 0 18px; font-weight:700; letter-spacing:-.02em; color:var(--ink); max-width:920px;}
-.sub{color:var(--ink2); font-size:clamp(16px,2vw,19px); margin:0; max-width:720px;}
-.meta{margin-top:24px; font-size:13.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center;}
-.meta b{color:var(--ink); font-weight:600;}
-
-.nav{position:sticky; top:0; z-index:50; background:var(--bg); border-bottom:1px solid var(--line); margin-top:clamp(28px,4vw,44px);}
-.nav-inner{display:flex; gap:4px 24px; overflow-x:auto; scrollbar-width:none; padding-top:13px; padding-bottom:13px;}
-.nav-inner::-webkit-scrollbar{display:none;}
-.nav a{color:var(--muted); text-decoration:none; font-size:13px; font-weight:700; white-space:nowrap; letter-spacing:.01em; padding:2px 0; border-bottom:2px solid transparent;}
-.nav a:hover{color:var(--ink);}
-.nav a.active{color:var(--ink); border-bottom-color:var(--accent);}
-
-section{margin:clamp(44px,6vw,72px) 0 0; scroll-margin-top:84px;}
-#episkopisi{background:#0A0A0C; padding:clamp(44px,6vw,72px) 0; margin-top:0;}
-#episkopisi h2{color:#fff;}
-#episkopisi .card{background:#14151A; border:1px solid rgba(255,255,255,.10);}
-#episkopisi .card h4{color:#fff;}
-#episkopisi .card p{margin:0; font-size:13.5px; line-height:1.65; color:rgba(255,255,255,.78);}
-#prosengisi .app-wrap{background:#D9D9D9; border-radius:24px; padding:clamp(24px,3.5vw,40px);}
-.app-intro{max-width:900px; font-size:16px; line-height:1.7; color:var(--ink); margin:0 0 22px;}
-.app-acc{display:flex; flex-direction:column; gap:12px;}
-.app-item{interpolate-size:allow-keywords; background:#FFFFFF; border:1px solid rgba(0,0,0,.08); border-radius:14px; overflow:hidden;}
-.app-sum{display:flex; align-items:center; gap:12px; padding:16px 20px; cursor:pointer; list-style:none; font-family:'Noi Grotesk',sans-serif; font-weight:700; font-size:15px; color:var(--ink); user-select:none;}
-.app-sum::-webkit-details-marker{display:none;}
-.app-ico{width:24px; height:24px; border-radius:50%; background:var(--ink); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:14px; font-weight:400; transition:transform .35s; flex-shrink:0; line-height:1;}
-.app-item[open] .app-ico{transform:rotate(45deg);}
-.app-body{overflow:hidden; padding:0 20px 20px;}
-.app-item::details-content{block-size:0; overflow-y:clip; transition:content-visibility .55s allow-discrete, block-size .55s cubic-bezier(.22,1,.36,1);}
-.app-item[open]::details-content{block-size:auto;}
-.app-body p{font-size:15px; line-height:1.7; color:var(--ink2); margin:0 0 12px;}
-.app-body p:last-child{margin-bottom:0;}
-h2{display:flex; align-items:baseline; gap:14px; font-size:clamp(21px,2.6vw,27px); font-weight:700; letter-spacing:-.015em; margin:0 0 8px; color:var(--ink); line-height:1.1;}
-h2 .sn{font-size:12px; color:var(--accent-ink); letter-spacing:.12em; font-weight:700; font-variant-numeric:tabular-nums;}
-h3{font-size:clamp(17px,2vw,20px); font-weight:600; margin:0 0 6px; letter-spacing:-.01em; color:var(--ink);}
-h4{font-size:15px; font-weight:600; margin:0 0 8px; color:var(--ink);}
-h1,h2,h3,h4,h5,h6{font-family:'Noi Grotesk',sans-serif;}
-p{margin:8px 0;}
-.lead{color:var(--ink2); font-size:14px; max-width:760px;}
-.src .sep{color:var(--line); margin:0 6px;}
-
-.card{border:1px solid var(--line); padding:20px 24px; background:var(--surface); border-radius:14px;}
-.card ul{margin:0; padding-left:18px;}
-.card li{margin-bottom:8px; font-size:13.5px; color:var(--ink2);}
-
-.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px;}
-.grid3{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;}
-.grid4{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px;}
-
-.tbl-scroll{overflow-x:auto; margin-top:14px; border:1px solid var(--line); background:var(--surface); border-radius:12px;}
-table{width:100%; border-collapse:collapse;}
-th{text-align:left; font-size:10.5px; letter-spacing:.06em; font-weight:700; color:var(--muted); padding:10px 14px; border-bottom:1px solid var(--line); white-space:nowrap; background:#F7F7F7;}
-td{padding:11px 14px; border-bottom:1px solid var(--line-soft); vertical-align:top; font-size:13px; color:var(--ink2);}
-tbody tr:hover td{background:rgba(28,105,212,.06);}
-tr:last-child td{border-bottom:none;}
-td b{color:var(--ink); font-weight:700;}
-td .id{color:var(--ink); font-weight:800; font-variant-numeric:tabular-nums;}
-.mono{font-variant-numeric:tabular-nums; white-space:nowrap;}
-
-.badge{display:inline-block; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; padding:2px 8px; border-radius:4px; white-space:nowrap;}
-.b-syn{background:var(--ink); color:#FFFFFF;}
-.b-af{border:1px solid var(--line); color:var(--accent-ink);}
-.b-br{border:1px solid var(--line); color:var(--ink2);}
-.b-gr{border:1px solid var(--line); color:var(--ink2); background:#F2F2F2;}
-
-.act{display:flex; gap:14px; align-items:flex-start; border-top:1px solid var(--line); padding:22px 0;}
-.act:first-of-type{border-top:none;}
-.act-num{font-size:30px; font-weight:800; color:var(--accent); line-height:1; min-width:44px; font-variant-numeric:tabular-nums;}
-.act-body{flex:1;}
-.act-ttl{font-size:17px; font-weight:800; margin:0 0 2px;}
-.act-sub{font-size:12.5px; color:var(--muted); margin:0 0 10px;}
-
-.toolbar{display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center; margin:20px 0 16px; padding-bottom:14px; border-bottom:1px solid var(--line);}
-.fbtn{background:none; border:none; border-bottom:2px solid transparent; padding:5px 0; font-size:13.5px; cursor:pointer; color:var(--muted); font-family:'Noi Grotesk',sans-serif; font-weight:600; letter-spacing:.01em;}
-.fbtn:hover{color:var(--ink);}
-.fbtn.on{color:var(--ink); border-bottom-color:var(--accent);}
-.search{flex:1 1 220px; min-width:180px; display:flex; justify-content:flex-end;}
-.search input{width:100%; max-width:300px; font-family:'Noi Grotesk',sans-serif; font-size:13.5px; padding:7px 12px; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:8px; outline:none;}
-.search input:focus{border-color:var(--accent);}
-
-.broll-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:3px; margin-top:8px;}
-.bcard{position:relative; overflow:hidden; margin:0; cursor:pointer; background:#111;}
-.bcard img{width:100%; aspect-ratio:16/9; object-fit:cover; display:block; transition:transform .5s cubic-bezier(.23,1,.32,1), filter .5s; filter:brightness(100%);}
-.bcard:hover img{filter:brightness(112%); transform:scale(1.04);}
-.bcard .b-overlay{position:absolute; left:0; right:0; bottom:0; padding:10px 12px; background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0)); color:#fff; opacity:0; transition:opacity .3s; pointer-events:none;}
-.bcard:hover .b-overlay{opacity:1;}
-.bcard .b-id{font-weight:700; font-size:14px;}
-.bcard .b-loc{font-size:12px; color:rgba(255,255,255,.85);}
-
-.fcard{border:1px solid var(--line); background:var(--surface); overflow:hidden; display:flex; flex-direction:column; border-radius:14px;}
-.fcard img{width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border-bottom:1px solid var(--line);}
-.fcard .f-body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:8px;}
-.fcard .f-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
-.fcard .f-name{font-size:16px; font-weight:800; color:var(--ink);}
-.fcard .f-tag{font-size:11px; color:var(--accent-ink);}
-.fcard table{width:100%; border-collapse:collapse;}
-.fcard td{border-bottom:1px solid var(--line-soft); padding:5px 0; font-size:12.5px;}
-.fcard td.k{color:var(--muted); width:44%; padding-right:8px; vertical-align:top;}
-.fcard td.v{color:var(--ink2);}
-.fcard tr:last-child td{border-bottom:none;}
-
-.def{border:1px solid var(--line); background:var(--surface); border-radius:14px;}
-.def table{width:100%;}
-.def td{border-bottom:1px solid var(--line-soft); padding:8px 14px; font-size:13px;}
-.def td.k{color:var(--muted); width:180px; background:#F7F7F7; font-weight:600; white-space:nowrap; vertical-align:top;}
-.def td.v{color:var(--ink2);}
-
-.tree{font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace; font-size:12.5px; line-height:1.75; color:var(--ink2); border:1px solid var(--line); background:var(--surface); padding:20px 24px; overflow-x:auto; white-space:pre; border-radius:12px;}
-.tree b{color:var(--ink); font-weight:700;}
-.tree .c{color:var(--muted);}
-.tree .a{color:var(--accent-ink); font-weight:700;}
-
-.mact{border:1px solid var(--line); background:var(--surface); margin-top:14px; border-radius:14px;}
-.mact-h{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; padding:14px 20px; border-bottom:1px solid var(--line); background:#F7F7F7;}
-.mact-h b{font-size:15px; font-weight:800; color:var(--ink);}
-.mact-h span{font-size:12px; color:var(--muted);}
-.mtr{display:flex; align-items:center; gap:18px; padding:12px 20px; border-bottom:1px solid var(--line-soft); flex-wrap:wrap;}
-.mtr:last-child{border-bottom:none;}
-.mtr .mt{flex:1 1 240px; min-width:200px;}
-.mtr .mt .a{font-size:13.5px; font-weight:700; color:var(--ink);}
-.mtr .mt .b{font-size:12.5px; color:var(--ink2);}
-.mtr .md{font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums;}
-.mtr audio{height:34px; width:300px; max-width:100%;}
-.gp-full{position:fixed; inset:0; z-index:999; background:rgba(0,0,0,.95); display:none; align-items:center; justify-content:center; flex-direction:column;}
-.gp-full.on{display:flex;}
-.gp-full img{max-width:90vw; max-height:78vh; object-fit:contain;}
-.gp-full .gp-info{margin-top:14px; color:#fff; text-align:center; font-size:14px; line-height:1.6; max-width:80vw;}
-.gp-full .gp-info b{font-size:16px;}
-.gp-full .gp-close{position:absolute; top:16px; right:22px; background:none; border:none; color:#fff; font-size:34px; cursor:pointer; line-height:1;}
-.gp-full .gp-prev,.gp-full .gp-next{position:absolute; top:50%; transform:translateY(-50%); background:none; border:none; color:#fff; font-size:40px; cursor:pointer; padding:14px; line-height:1;}
-.gp-full .gp-prev{left:10px;}
-.gp-full .gp-next{right:10px;}
-
-footer{background:#0A0A0C; border-top:none; margin-top:0; padding-top:26px; padding-bottom:64px; color:#9A9A9A; font-size:13px;}
-footer .fline{font-variant-numeric:tabular-nums; color:#B0B0B0;}
-footer .fline b{color:var(--ink); font-weight:700;}
-
-.two-col{columns:2; column-gap:40px;}
-@media (max-width:760px){.two-col{columns:1;}}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
-.hero{position:relative; overflow:hidden; aspect-ratio:2400/664;}
-.hero img{width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.2); transform-origin:center; will-change:transform;}
-.acc-list{display:flex; flex-direction:column; gap:14px; position:relative; z-index:1;}
-.acc-item{interpolate-size:allow-keywords; background:rgba(34,37,43,.55); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%); border:1px solid rgba(255,255,255,.10); border-radius:14px; overflow:hidden;}
-.acc-sum{display:flex; align-items:center; gap:12px; padding:16px 20px; cursor:pointer; list-style:none; font-family:'Noi Grotesk',sans-serif; font-weight:500; font-size:15.5px; color:#fff; user-select:none;}
-.acc-sum::-webkit-details-marker{display:none;}
-.acc-ico{width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,.16); display:inline-flex; align-items:center; justify-content:center; font-size:15px; font-weight:400; color:#fff; transition:transform .35s; flex-shrink:0; line-height:1;}
-.acc-item[open] .acc-ico{transform:rotate(45deg);}
-.acc-body{overflow:hidden; padding:0 20px 20px;}
-.acc-item::details-content{block-size:0; overflow-y:clip; transition:content-visibility .55s allow-discrete, block-size .55s cubic-bezier(.22,1,.36,1);}
-.acc-item[open]::details-content{block-size:auto;}
-.castacc{display:flex; gap:8px; width:100%; height:440px; margin-top:6px;}
-.castacc-item{position:relative; flex:1; overflow:hidden; cursor:pointer; transition:flex .55s cubic-bezier(.23,1,.32,1); display:flex; flex-direction:column; min-width:0; border-radius:14px;}
-.castacc-item.is-active{flex:4;}
-.castacc-imgwrap{flex:1; position:relative; overflow:hidden; min-height:0;}
-.castacc-img{width:100%; height:100%; object-fit:cover; display:block;}
-.castacc-cap{position:absolute; left:0; right:0; bottom:0; padding:10px 12px; background:linear-gradient(to top, rgba(0,0,0,.8), transparent); color:#fff;}
-.castacc-name{font-weight:700; font-size:15px;}
-.castacc-title{font-size:12px; color:rgba(255,255,255,.85);}
-.castacc-panel{max-height:0; overflow:hidden; transition:max-height .4s ease; background:var(--surface);}
-.castacc-item.is-active .castacc-panel{max-height:400px;}
-.castacc-row{display:flex; justify-content:space-between; gap:12px; padding:7px 14px; border-bottom:1px solid var(--line-soft); font-size:13px;}
-.castacc-row:last-child{border-bottom:none;}
-.castacc-row .k{color:var(--muted); font-weight:600; flex-shrink:0;}
-.castacc-row .v{color:var(--ink2); text-align:right;}
-.acc-wrap{position:relative; margin-top:28px; border-radius:24px; overflow:hidden; padding:32px 28px; background-image:url('assets/acc-bg.jpg'); background-size:cover; background-position:center;}
-.acc-wrap::after{content:''; position:absolute; inset:0; background:rgba(0,0,0,.25); pointer-events:none;}
-@media (max-width:760px){.acc-wrap{padding:20px;}}
-.acc-body .lead{color:rgba(255,255,255,.85); font-size:14px; max-width:none; margin-top:0;}
-.acc-body .lead b{color:#fff;}
-.acc-body .tbl-scroll{margin-top:4px; border:1px solid rgba(255,255,255,.12); background:rgba(8,9,12,.42); border-radius:10px;}
-.acc-body table{background:transparent;}
-.acc-body th{color:rgba(255,255,255,.72); border-bottom:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.05);}
-.acc-body td{color:rgba(255,255,255,.85); border-bottom:1px solid rgba(255,255,255,.09);}
-.acc-body td b{color:#fff;}
-.castacc-img{transition:transform .5s ease;}
-.castacc-item:hover .castacc-img{transform:scale(1.07);}
-
-.b-kadro{position:absolute; inset:0; padding:12px 12px 10px; background:rgba(0,0,0,.74); color:#fff; opacity:0; transition:opacity .3s; pointer-events:none; display:flex; flex-direction:column; gap:5px;}
-.bcard:hover .b-kadro{opacity:1;}
-.b-kadro .b-kname{font-weight:700; font-size:13.5px; line-height:1.2;}
-.b-kadro .b-ksc{font-size:11px; color:rgba(255,255,255,.7);}
-.b-kadro .b-krow{display:flex; justify-content:space-between; gap:8px; font-size:11px; line-height:1.3;}
-.b-kadro .kk{color:rgba(255,255,255,.6); font-weight:600; flex-shrink:0;}
-.b-kadro .kv{color:#fff; text-align:right;}
-
-.b-kadro-row{grid-column:1/-1; display:grid; grid-template-columns:repeat(4,1fr); gap:3px; margin-bottom:3px;}
-@media (max-width:700px){.b-kadro-row{grid-template-columns:repeat(2,1fr);}}
-
-.hero-cap{position:absolute; left:0; right:0; bottom:0; background:linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0) 75%); padding-top:clamp(30px,6vw,76px); padding-bottom:clamp(18px,3vw,34px);}
-.hero-cap h1{color:#fff; margin-bottom:12px;}
-.hero-cap .sub{color:rgba(255,255,255,.9);}
-.totop{position:fixed; right:22px; bottom:22px; width:46px; height:46px; border-radius:50%; background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,.22); z-index:999; transition:transform .25s, background .25s;}
-.totop:hover{transform:translateY(-3px); background:var(--accent);}
-
-.acc-body .nt{color:rgba(255,255,255,.78); font-size:13px;}
-
-#mousiki{position:relative; background-image:url('assets/music-bg.jpg'); background-size:cover; background-position:center; padding:clamp(44px,7vw,88px) 0;}
-#mousiki::before{content:''; position:absolute; inset:0; background:rgba(0,0,0,.55);}
-#mousiki .wrap{position:relative; z-index:1;}
-#mousiki h2{color:#fff;}
-#mousiki h3{color:#fff;}
-#mousiki .lead{color:rgba(255,255,255,.84);}
-#mousiki .mact{background:rgba(18,20,24,.5); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.1); border-radius:14px;}
-#mousiki .mact-h{background:rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.1);}
-#mousiki .mact-h b{color:#fff;}
-#mousiki .mact-h span{color:rgba(255,255,255,.7);}
-#mousiki .mtr{border-bottom:1px solid rgba(255,255,255,.08);}
-#mousiki .mtr:last-child{border-bottom:none;}
-#mousiki .mtr .mt .a{color:#fff;}
-#mousiki .mtr .mt .b{color:rgba(255,255,255,.72);}
-#mousiki .mtr .md{color:rgba(255,255,255,.65);}
-</style>
-</head>
-<body>
-
-<div class="hero">
-  <img src="assets/hero-voula.jpg" alt="Βούλα, αεροφωτογραφία" width="2400" height="664">
-  <div class="hero-cap">
-    <div class="wrap">
-      <h1>Δήμος Βάρης, Βούλας, Βουλιαγμένης</h1>
-      <div class="sub">Δημιουργία ταινίας 5 λεπτών που παρουσιάζει το έργο διαχείρισης έξυπνων κάδων.</div>
-    </div>
-  </div>
-</div>
-
-<!-- 1. ΕΠΙΣΚΟΠΗΣΗ -->
-<section id="episkopisi"><div class="wrap">
-  <div class="grid3">
-    <div class="card"><h4>Πελάτης και φορείς</h4>
-      <p>Δήμος Βάρης Βούλας Βουλιαγμένης (ο φορέας του έργου). EmDoT: ανάπτυξη και υποστήριξη της λύσης Dot.Waste. Telekom: ευθύνη υλοποίησης και ολοκλήρωσης.</p>
-    </div>
-    <div class="card"><h4>Παραδοτέο υλικό</h4>
-      <p>Ταινία περίπου 5 λεπτών (UHD Format) και 3 cut versions (αναλογία 9:16) για χρήση σε social media.</p>
-    </div>
-  </div>
-</div></section>
-<!-- 3. ΣΕΝΑΡΙΟ -->
-<section id="prosengisi"><div class="wrap">
-  <h2>Σκηνοθετική Προσέγγιση</h2>
-  <div class="app-wrap">
-    <p class="app-intro">Ο Δήμος αναζητεί μια τεχνολογικά πρωτοποριακή λύση ώστε να κάνει πιο παραγωγικό το χρόνο εργασίας των υπηρεσιών καθαριότητας. Ναι μεν πρόκειται για μια υπηρεσία που στο τέλος απολαμβάνει ο πολίτης, αλλά ουσιαστικά δεν βλέπει ν' αλλάζει κάτι στο περιβάλλον του άμεσα. Η πόλη είναι ήδη καθαρή. Αυτή είναι η ιδιαιτερότητα του έργου. Αυτό είναι η ταινία μας. Μια ματιά στα παρασκήνια.</p>
-    <div class="app-acc">
-    <details class="app-item">
-      <summary class="app-sum"><span class="app-ico">+</span>Η Ανάγκη</summary>
-      <div class="app-body">
-        <p>Ο Δήμος χρειάζεται πληροφορίες: Ποιος κάδος είναι γεμάτος; Ποια διαδρομή να ακολουθήσουμε; Πού υπάρχει κάποιο τεχνικό πρόβλημα;</p>
-        <p>Πληροφορίες που εξοικονομούν χρόνο και χρήμα. Ώστε να λαμβάνονται οι σωστές αποφάσεις.</p>
-        <p>Σωστά δρομολόγια σημαίνουν λιγότερη κατανάλωση ενέργειας, λιγότερη συντήρηση στα οχήματα και τα εμπλεκόμενα μηχανήματα και μηχανοστάσια, καλύτερα ωράρια για τους εργαζόμενους υγείας.</p>
-      </div>
-    </details>
-    <details class="app-item">
-      <summary class="app-sum"><span class="app-ico">+</span>Η υλοποίηση</summary>
-      <div class="app-body">
-        <p>Μια τέτοια λύση απαιτεί μια ικανή εταιρεία τεχνολογίας για να τη φέρει εις πέρας. Αισθητήρες σε κάδους, στη βροχή, στη ζέστη, στο κρύο. Κέντρο ελέγχου για παρακολούθηση και καταγραφή 24 ώρες το 24ωρο.</p>
-        <p>Έτσι εμφανίζεται το εργαστήριο της EmDot. Οθόνες υπολογιστών. Ηλεκτρονική συναρμολόγιση. Μηχανουργείο. (Σημ.: Δεν υπάρχουν τα λογότυπά της EmDoT κατά τη διάρκεια του φιλμ). Επεξηγούμε την πρόκληση, την πολυπλοκότητα, τη λύση, το επίτευγμα.</p>
-      </div>
-    </details>
-    <details class="app-item">
-      <summary class="app-sum"><span class="app-ico">+</span>Το αντίκτυπο στην κοινωνία</summary>
-      <div class="app-body">
-        <p>Ολοκληρώνουμε την αφήγησή μας με το αποτέλεσμα. Ο Εργαζόμενος, ο υπεύθυνος καθαριότητας και κάποιος εκπρόσωπος πολιτών που έζησαν το αποτέλεσμα ενός τέτοιου έργου. Καθαροί δρόμοι, καλύτερα ωράρια, εξοικονόμηση πόρων. Το βιωματικό τους ταξίδι, η δική τους οπτική γωνία.</p>
-      </div>
-    </details>
-    <details class="app-item">
-      <summary class="app-sum"><span class="app-ico">+</span>Εικόνα</summary>
-      <div class="app-body">
-        <p>Φωτισμένοι και καδραρισμένοι με τέτοιο τρόπο ώστε να επικεντρώνεται το μάτι του θεατή επάνω τους. Εκείνοι (ο καθένας ξεχωριστά), χαλαροί σαν κάποιος να τους παίρνει συνέντευξη, δεν κοιτούν κάμερα απευθείας. Αυτό θα ήταν περισσότερο σαν διάγγελμα παρά μια χαλαρή συζήτηση. Το ντύσιμό τους, business casual, κάνει αντίθεση με το λιτό φόντο. (π.χ. ανοιχτόχρωμο φόντο - σκουρόχρωμο ντύσιμο). Ήχος με ασύρματα μικρόφωνα πέτου μας φέρνει κοντά στον ομιλητή, νιώθουμε οικεία.</p>
-        <p>Όλη η ταινία "ντύνεται" με πλάνα από το δήμο (b-roll), τα σημεία του έργου και το εργαστήριο. Κάνοντας ακόμη πιο immersive την εμπειρία του θεατή. Οι ώρες που θα γίνουν τα εξωτερικά γυρίσματα θα πρέπει να είναι ή με το φρέσκο φως της ημέρας ή με το χρυσαφένιο της δύσης. Προσθέτοντας έτσι ένα επίπεδο συναισθηματικού βάθους που δεν συναντάς συχνά σε ένα εταιρικό φιλμ.</p>
-      </div>
-    </details>
-    <details class="app-item">
-      <summary class="app-sum"><span class="app-ico">+</span>Ήχος</summary>
-      <div class="app-body">
-        <p>Ανάμεσα στις συνεντεύξεις μια ζεστή (ανδρική ή γυναικεία) φωνή συμπληρώνει το storyline μεταφέροντάς μας από ενότητα σε ενότητα με έξυπνο και διακριτικό τρόπο.</p>
-        <p>Η μουσική υπογραμμίζει τις 3 πράξεις της ταινίας. Χαλαρή εισαγωγή για την παρουσίαση της ανάγκης του δήμου. Τεχνολογικό ηχόχρωμα στην ανάπτυξη της λύσης. Αισιόδοξο κινηματογραφικό τελείωμα αφήνει μια δημιουργική νότα και την αίσθηση ότι κάτι μεγάλο γίνεται ακόμα κι αν δεν φαίνεται με την πρώτη ματιά.</p>
-      </div>
-    </details>
-    <details class="app-item">
-      <summary class="app-sum"><span class="app-ico">+</span>Αποτέλεσμα</summary>
-      <div class="app-body">
-        <p>Με αυτά τα στοιχεία και με την κάρτα των γραφιστικών που αποδίδει την υλοποίηση του έργου στο Δήμο, την EmDot και την Telekom, αφήνουμε ένα πολύ ηχηρό μήνυμα στο θεατή: Ένας Δήμος για τον πολίτη. Εγχώρια τεχνολογία. Εξελιγμένη διασύνδεση.</p>
-      </div>
-    </details>
-    </div>
-  </div>
-</div></section>
-
-<section id="senario"><div class="wrap">
+1|<!DOCTYPE html>
+2|<html lang="el">
+3|<head>
+4|<meta charset="utf-8">
+5|<meta name="viewport" content="width=device-width, initial-scale=1">
+6|<title>Δήμος Βάρης, Βούλας, Βουλιαγμένης · VVV Smart Waste</title>
+7|<style>
+8|@font-face{font-family:'Cinobo Display'; src:url('fonts/CinoboDisplay-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap;}
+9|@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap;}
+10|@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap;}
+11|@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap;}
+12|@font-face{font-family:'Noi Grotesk'; src:url('fonts/NoiGrotesk-Bold.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap;}
+13|:root{
+14|  --bg:#FFFFFF; --surface:#FFFFFF;
+15|  --ink:#262626; --ink2:#757575; --muted:#757575;
+16|  --line:#E8E8E8; --line-soft:#F0F0F0;
+17|  --accent:#1c69d4; --accent-ink:#0653b6;
+18|}
+19|*{box-sizing:border-box;}
+20|html{scroll-behavior:smooth;}
+21|body{
+22|  margin:0; background:var(--bg); color:var(--ink);
+23|  font-family:'Noi Grotesk',sans-serif;
+24|  font-size:15px; line-height:1.6; -webkit-font-smoothing:antialiased;
+25|  text-rendering:optimizeLegibility;
+26|}
+27|::selection{background:rgba(28,105,212,.22); color:var(--ink);}
+28|.wrap{max-width:1500px; margin:0 auto; padding:0 clamp(20px,4vw,56px);}
+29|
+30|header.doc{padding:clamp(44px,7vw,92px) 0 0;}
+31|.eyebrow{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent-ink); font-weight:700; margin:0 0 20px;}
+32|h1{font-size:clamp(34px,5.4vw,62px); line-height:1.04; margin:0 0 18px; font-weight:700; letter-spacing:-.02em; color:var(--ink); max-width:920px;}
+33|.sub{color:var(--ink2); font-size:clamp(16px,2vw,19px); margin:0; max-width:720px;}
+34|.meta{margin-top:24px; font-size:13.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 10px; align-items:center;}
+35|.meta b{color:var(--ink); font-weight:600;}
+36|
+37|.nav{position:sticky; top:0; z-index:50; background:var(--bg); border-bottom:1px solid var(--line); margin-top:clamp(28px,4vw,44px);}
+38|.nav-inner{display:flex; gap:4px 24px; overflow-x:auto; scrollbar-width:none; padding-top:13px; padding-bottom:13px;}
+39|.nav-inner::-webkit-scrollbar{display:none;}
+40|.nav a{color:var(--muted); text-decoration:none; font-size:13px; font-weight:700; white-space:nowrap; letter-spacing:.01em; padding:2px 0; border-bottom:2px solid transparent;}
+41|.nav a:hover{color:var(--ink);}
+42|.nav a.active{color:var(--ink); border-bottom-color:var(--accent);}
+43|
+44|section{margin:clamp(44px,6vw,72px) 0 0; scroll-margin-top:84px;}
+45|#episkopisi{background:#0A0A0C; padding:clamp(44px,6vw,72px) 0; margin-top:0;}
+46|#episkopisi h2{color:#fff;}
+47|#episkopisi .card{background:#14151A; border:1px solid rgba(255,255,255,.10);}
+48|#episkopisi .card h4{color:#fff;}
+49|#episkopisi .card p{margin:0; font-size:13.5px; line-height:1.65; color:rgba(255,255,255,.78);}
+50|#prosengisi .app-wrap{background:#D9D9D9; border-radius:24px; padding:clamp(24px,3.5vw,40px);}
+51|.app-intro{max-width:900px; font-size:16px; line-height:1.7; color:var(--ink); margin:0 0 22px;}
+52|.app-acc{display:flex; flex-direction:column; gap:12px;}
+53|.app-item{interpolate-size:allow-keywords; background:#FFFFFF; border:1px solid rgba(0,0,0,.08); border-radius:14px; overflow:hidden;}
+54|.app-sum{display:flex; align-items:center; gap:12px; padding:16px 20px; cursor:pointer; list-style:none; font-family:'Noi Grotesk',sans-serif; font-weight:700; font-size:15px; color:var(--ink); user-select:none;}
+55|.app-sum::-webkit-details-marker{display:none;}
+56|.app-ico{width:24px; height:24px; border-radius:50%; background:var(--ink); color:#fff; display:inline-flex; align-items:center; justify-content:center; font-size:14px; font-weight:400; transition:transform .35s; flex-shrink:0; line-height:1;}
+57|.app-item[open] .app-ico{transform:rotate(45deg);}
+58|.app-body{overflow:hidden; padding:0 20px 20px;}
+59|.app-item::details-content{block-size:0; overflow-y:clip; transition:content-visibility .55s allow-discrete, block-size .55s cubic-bezier(.22,1,.36,1);}
+60|.app-item[open]::details-content{block-size:auto;}
+61|.app-body p{font-size:15px; line-height:1.7; color:var(--ink2); margin:0 0 12px;}
+62|.app-body p:last-child{margin-bottom:0;}
+63|h2{display:flex; align-items:baseline; gap:14px; font-size:clamp(21px,2.6vw,27px); font-weight:700; letter-spacing:-.015em; margin:0 0 8px; color:var(--ink); line-height:1.1;}
+64|h2 .sn{font-size:12px; color:var(--accent-ink); letter-spacing:.12em; font-weight:700; font-variant-numeric:tabular-nums;}
+65|h3{font-size:clamp(17px,2vw,20px); font-weight:600; margin:0 0 6px; letter-spacing:-.01em; color:var(--ink);}
+66|h4{font-size:15px; font-weight:600; margin:0 0 8px; color:var(--ink);}
+67|h1,h2,h3,h4,h5,h6{font-family:'Noi Grotesk',sans-serif;}
+68|p{margin:8px 0;}
+69|.lead{color:var(--ink2); font-size:14px; max-width:760px;}
+70|.src .sep{color:var(--line); margin:0 6px;}
+71|
+72|.card{border:1px solid var(--line); padding:20px 24px; background:var(--surface); border-radius:14px;}
+73|.card ul{margin:0; padding-left:18px;}
+74|.card li{margin-bottom:8px; font-size:13.5px; color:var(--ink2);}
+75|
+76|.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px;}
+77|.grid3{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;}
+78|.grid4{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px;}
+79|
+80|.tbl-scroll{overflow-x:auto; margin-top:14px; border:1px solid var(--line); background:var(--surface); border-radius:12px;}
+81|table{width:100%; border-collapse:collapse;}
+82|th{text-align:left; font-size:10.5px; letter-spacing:.06em; font-weight:700; color:var(--muted); padding:10px 14px; border-bottom:1px solid var(--line); white-space:nowrap; background:#F7F7F7;}
+83|td{padding:11px 14px; border-bottom:1px solid var(--line-soft); vertical-align:top; font-size:13px; color:var(--ink2);}
+84|tbody tr:hover td{background:rgba(28,105,212,.06);}
+85|tr:last-child td{border-bottom:none;}
+86|td b{color:var(--ink); font-weight:700;}
+87|td .id{color:var(--ink); font-weight:800; font-variant-numeric:tabular-nums;}
+88|.mono{font-variant-numeric:tabular-nums; white-space:nowrap;}
+89|
+90|.badge{display:inline-block; font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; font-weight:700; padding:2px 8px; border-radius:4px; white-space:nowrap;}
+91|.b-syn{background:var(--ink); color:#FFFFFF;}
+92|.b-af{border:1px solid var(--line); color:var(--accent-ink);}
+93|.b-br{border:1px solid var(--line); color:var(--ink2);}
+94|.b-gr{border:1px solid var(--line); color:var(--ink2); background:#F2F2F2;}
+95|
+96|.act{display:flex; gap:14px; align-items:flex-start; border-top:1px solid var(--line); padding:22px 0;}
+97|.act:first-of-type{border-top:none;}
+98|.act-num{font-size:30px; font-weight:800; color:var(--accent); line-height:1; min-width:44px; font-variant-numeric:tabular-nums;}
+99|.act-body{flex:1;}
+100|.act-ttl{font-size:17px; font-weight:800; margin:0 0 2px;}
+101|.act-sub{font-size:12.5px; color:var(--muted); margin:0 0 10px;}
+102|
+103|.toolbar{display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center; margin:20px 0 16px; padding-bottom:14px; border-bottom:1px solid var(--line);}
+104|.fbtn{background:none; border:none; border-bottom:2px solid transparent; padding:5px 0; font-size:13.5px; cursor:pointer; color:var(--muted); font-family:'Noi Grotesk',sans-serif; font-weight:600; letter-spacing:.01em;}
+105|.fbtn:hover{color:var(--ink);}
+106|.fbtn.on{color:var(--ink); border-bottom-color:var(--accent);}
+107|.search{flex:1 1 220px; min-width:180px; display:flex; justify-content:flex-end;}
+108|.search input{width:100%; max-width:300px; font-family:'Noi Grotesk',sans-serif; font-size:13.5px; padding:7px 12px; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:8px; outline:none;}
+109|.search input:focus{border-color:var(--accent);}
+110|
+111|.broll-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:3px; margin-top:8px;}
+112|.bcard{position:relative; overflow:hidden; margin:0; cursor:pointer; background:#111;}
+113|.bcard img{width:100%; aspect-ratio:16/9; object-fit:cover; display:block; transition:transform .5s cubic-bezier(.23,1,.32,1), filter .5s; filter:brightness(100%);}
+114|.bcard:hover img{filter:brightness(112%); transform:scale(1.04);}
+115|.bcard .b-overlay{position:absolute; left:0; right:0; bottom:0; padding:10px 12px; background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,0)); color:#fff; opacity:0; transition:opacity .3s; pointer-events:none;}
+116|.bcard:hover .b-overlay{opacity:1;}
+117|.bcard .b-id{font-weight:700; font-size:14px;}
+118|.bcard .b-loc{font-size:12px; color:rgba(255,255,255,.85);}
+119|
+120|.fcard{border:1px solid var(--line); background:var(--surface); overflow:hidden; display:flex; flex-direction:column; border-radius:14px;}
+121|.fcard img{width:100%; aspect-ratio:16/9; object-fit:cover; display:block; border-bottom:1px solid var(--line);}
+122|.fcard .f-body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:8px;}
+123|.fcard .f-head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
+124|.fcard .f-name{font-size:16px; font-weight:800; color:var(--ink);}
+125|.fcard .f-tag{font-size:11px; color:var(--accent-ink);}
+126|.fcard table{width:100%; border-collapse:collapse;}
+127|.fcard td{border-bottom:1px solid var(--line-soft); padding:5px 0; font-size:12.5px;}
+128|.fcard td.k{color:var(--muted); width:44%; padding-right:8px; vertical-align:top;}
+129|.fcard td.v{color:var(--ink2);}
+130|.fcard tr:last-child td{border-bottom:none;}
+131|
+132|.def{border:1px solid var(--line); background:var(--surface); border-radius:14px;}
+133|.def table{width:100%;}
+134|.def td{border-bottom:1px solid var(--line-soft); padding:8px 14px; font-size:13px;}
+135|.def td.k{color:var(--muted); width:180px; background:#F7F7F7; font-weight:600; white-space:nowrap; vertical-align:top;}
+136|.def td.v{color:var(--ink2);}
+137|
+138|.tree{font-family:'SF Mono',ui-monospace,Menlo,Consolas,monospace; font-size:12.5px; line-height:1.75; color:var(--ink2); border:1px solid var(--line); background:var(--surface); padding:20px 24px; overflow-x:auto; white-space:pre; border-radius:12px;}
+139|.tree b{color:var(--ink); font-weight:700;}
+140|.tree .c{color:var(--muted);}
+141|.tree .a{color:var(--accent-ink); font-weight:700;}
+142|
+143|.mact{border:1px solid var(--line); background:var(--surface); margin-top:14px; border-radius:14px;}
+144|.mact-h{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; padding:14px 20px; border-bottom:1px solid var(--line); background:#F7F7F7;}
+145|.mact-h b{font-size:15px; font-weight:800; color:var(--ink);}
+146|.mact-h span{font-size:12px; color:var(--muted);}
+147|.mtr{display:flex; align-items:center; gap:18px; padding:12px 20px; border-bottom:1px solid var(--line-soft); flex-wrap:wrap;}
+148|.mtr:last-child{border-bottom:none;}
+149|.mtr .mt{flex:1 1 240px; min-width:200px;}
+150|.mtr .mt .a{font-size:13.5px; font-weight:700; color:var(--ink);}
+151|.mtr .mt .b{font-size:12.5px; color:var(--ink2);}
+152|.mtr .md{font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums;}
+153|.mtr audio{height:34px; width:300px; max-width:100%;}
+154|.gp-full{position:fixed; inset:0; z-index:999; background:rgba(0,0,0,.95); display:none; align-items:center; justify-content:center; flex-direction:column;}
+155|.gp-full.on{display:flex;}
+156|.gp-full img{max-width:90vw; max-height:78vh; object-fit:contain;}
+157|.gp-full .gp-info{margin-top:14px; color:#fff; text-align:center; font-size:14px; line-height:1.6; max-width:80vw;}
+158|.gp-full .gp-info b{font-size:16px;}
+159|.gp-full .gp-close{position:absolute; top:16px; right:22px; background:none; border:none; color:#fff; font-size:34px; cursor:pointer; line-height:1;}
+160|.gp-full .gp-prev,.gp-full .gp-next{position:absolute; top:50%; transform:translateY(-50%); background:none; border:none; color:#fff; font-size:40px; cursor:pointer; padding:14px; line-height:1;}
+161|.gp-full .gp-prev{left:10px;}
+162|.gp-full .gp-next{right:10px;}
+163|
+164|footer{background:#0A0A0C; border-top:none; margin-top:0; padding-top:26px; padding-bottom:64px; color:#9A9A9A; font-size:13px;}
+165|footer .fline{font-variant-numeric:tabular-nums; color:#B0B0B0;}
+166|footer .fline b{color:var(--ink); font-weight:700;}
+167|
+168|.two-col{columns:2; column-gap:40px;}
+169|@media (max-width:760px){.two-col{columns:1;}}
+170|@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto;}}
+171|.hero{position:relative; overflow:hidden; aspect-ratio:2400/664;}
+172|.hero img{width:100%; height:100%; object-fit:cover; display:block; transform:scale(1.2); transform-origin:center; will-change:transform;}
+173|.acc-list{display:flex; flex-direction:column; gap:14px; position:relative; z-index:1;}
+174|.acc-item{interpolate-size:allow-keywords; background:rgba(34,37,43,.55); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%); border:1px solid rgba(255,255,255,.10); border-radius:14px; overflow:hidden;}
+175|.acc-sum{display:flex; align-items:center; gap:12px; padding:16px 20px; cursor:pointer; list-style:none; font-family:'Noi Grotesk',sans-serif; font-weight:500; font-size:15.5px; color:#fff; user-select:none;}
+176|.acc-sum::-webkit-details-marker{display:none;}
+177|.acc-ico{width:26px; height:26px; border-radius:50%; background:rgba(255,255,255,.16); display:inline-flex; align-items:center; justify-content:center; font-size:15px; font-weight:400; color:#fff; transition:transform .35s; flex-shrink:0; line-height:1;}
+178|.acc-item[open] .acc-ico{transform:rotate(45deg);}
+179|.acc-body{overflow:hidden; padding:0 20px 20px;}
+180|.acc-item::details-content{block-size:0; overflow-y:clip; transition:content-visibility .55s allow-discrete, block-size .55s cubic-bezier(.22,1,.36,1);}
+181|.acc-item[open]::details-content{block-size:auto;}
+182|.castacc{display:flex; gap:8px; width:100%; height:440px; margin-top:6px;}
+183|.castacc-item{position:relative; flex:1; overflow:hidden; cursor:pointer; transition:flex .55s cubic-bezier(.23,1,.32,1); display:flex; flex-direction:column; min-width:0; border-radius:14px;}
+184|.castacc-item.is-active{flex:4;}
+185|.castacc-imgwrap{flex:1; position:relative; overflow:hidden; min-height:0;}
+186|.castacc-img{width:100%; height:100%; object-fit:cover; display:block;}
+187|.castacc-cap{position:absolute; left:0; right:0; bottom:0; padding:10px 12px; background:linear-gradient(to top, rgba(0,0,0,.8), transparent); color:#fff;}
+188|.castacc-name{font-weight:700; font-size:15px;}
+189|.castacc-title{font-size:12px; color:rgba(255,255,255,.85);}
+190|.castacc-panel{max-height:0; overflow:hidden; transition:max-height .4s ease; background:var(--surface);}
+191|.castacc-item.is-active .castacc-panel{max-height:400px;}
+192|.castacc-row{display:flex; justify-content:space-between; gap:12px; padding:7px 14px; border-bottom:1px solid var(--line-soft); font-size:13px;}
+193|.castacc-row:last-child{border-bottom:none;}
+194|.castacc-row .k{color:var(--muted); font-weight:600; flex-shrink:0;}
+195|.castacc-row .v{color:var(--ink2); text-align:right;}
+196|.acc-wrap{position:relative; margin-top:28px; border-radius:24px; overflow:hidden; padding:32px 28px; background-image:url('assets/acc-bg.jpg'); background-size:cover; background-position:center;}
+197|.acc-wrap::after{content:''; position:absolute; inset:0; background:rgba(0,0,0,.25); pointer-events:none;}
+198|@media (max-width:760px){.acc-wrap{padding:20px;}}
+199|.acc-body .lead{color:rgba(255,255,255,.85); font-size:14px; max-width:none; margin-top:0;}
+200|.acc-body .lead b{color:#fff;}
+201|.acc-body .tbl-scroll{margin-top:4px; border:1px solid rgba(255,255,255,.12); background:rgba(8,9,12,.42); border-radius:10px;}
+202|.acc-body table{background:transparent;}
+203|.acc-body th{color:rgba(255,255,255,.72); border-bottom:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.05);}
+204|.acc-body td{color:rgba(255,255,255,.85); border-bottom:1px solid rgba(255,255,255,.09);}
+205|.acc-body td b{color:#fff;}
+206|.castacc-img{transition:transform .5s ease;}
+207|.castacc-item:hover .castacc-img{transform:scale(1.07);}
+208|
+209|.b-kadro{position:absolute; inset:0; padding:12px 12px 10px; background:rgba(0,0,0,.74); color:#fff; opacity:0; transition:opacity .3s; pointer-events:none; display:flex; flex-direction:column; gap:5px;}
+210|.bcard:hover .b-kadro{opacity:1;}
+211|.b-kadro .b-kname{font-weight:700; font-size:13.5px; line-height:1.2;}
+212|.b-kadro .b-ksc{font-size:11px; color:rgba(255,255,255,.7);}
+213|.b-kadro .b-krow{display:flex; justify-content:space-between; gap:8px; font-size:11px; line-height:1.3;}
+214|.b-kadro .kk{color:rgba(255,255,255,.6); font-weight:600; flex-shrink:0;}
+215|.b-kadro .kv{color:#fff; text-align:right;}
+216|
+217|.b-kadro-row{grid-column:1/-1; display:grid; grid-template-columns:repeat(4,1fr); gap:3px; margin-bottom:3px;}
+218|@media (max-width:700px){.b-kadro-row{grid-template-columns:repeat(2,1fr);}}
+219|
+220|.hero-cap{position:absolute; left:0; right:0; bottom:0; background:linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0) 75%); padding-top:clamp(30px,6vw,76px); padding-bottom:clamp(18px,3vw,34px);}
+221|.hero-cap h1{color:#fff; margin-bottom:12px;}
+222|.hero-cap .sub{color:rgba(255,255,255,.9);}
+223|.totop{position:fixed; right:22px; bottom:22px; width:46px; height:46px; border-radius:50%; background:var(--ink); color:#fff; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 18px rgba(0,0,0,.22); z-index:999; transition:transform .25s, background .25s;}
+224|.totop:hover{transform:translateY(-3px); background:var(--accent);}
+225|
+226|.acc-body .nt{color:rgba(255,255,255,.78); font-size:13px;}
+227|
+228|#mousiki{position:relative; background-image:url('assets/music-bg.jpg'); background-size:cover; background-position:center; padding:clamp(44px,7vw,88px) 0;}
+229|#mousiki::before{content:''; position:absolute; inset:0; background:rgba(0,0,0,.55);}
+230|#mousiki .wrap{position:relative; z-index:1;}
+231|#mousiki h2{color:#fff;}
+232|#mousiki h3{color:#fff;}
+233|#mousiki .lead{color:rgba(255,255,255,.84);}
+234|#mousiki .mact{background:rgba(18,20,24,.5); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,.1); border-radius:14px;}
+235|#mousiki .mact-h{background:rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.1);}
+236|#mousiki .mact-h b{color:#fff;}
+237|#mousiki .mact-h span{color:rgba(255,255,255,.7);}
+238|#mousiki .mtr{border-bottom:1px solid rgba(255,255,255,.08);}
+239|#mousiki .mtr:last-child{border-bottom:none;}
+240|#mousiki .mtr .mt .a{color:#fff;}
+241|#mousiki .mtr .mt .b{color:rgba(255,255,255,.72);}
+242|#mousiki .mtr .md{color:rgba(255,255,255,.65);}
+243|</style>
+244|</head>
+245|<body>
+246|
+247|<div class="hero">
+248|  <img src="assets/hero-voula.jpg" alt="Βούλα, αεροφωτογραφία" width="2400" height="664">
+249|  <div class="hero-cap">
+250|    <div class="wrap">
+251|      <h1>Δήμος Βάρης, Βούλας, Βουλιαγμένης</h1>
+252|      <div class="sub">Δημιουργία ταινίας 5 λεπτών που παρουσιάζει το έργο διαχείρισης έξυπνων κάδων.</div>
+253|    </div>
+254|  </div>
+255|</div>
+256|
+257|<!-- 1. ΕΠΙΣΚΟΠΗΣΗ -->
+258|<section id="episkopisi"><div class="wrap">
+259|  <div class="grid3">
+260|    <div class="card"><h4>Πελάτης και φορείς</h4>
+261|      <p>Δήμος Βάρης Βούλας Βουλιαγμένης (ο φορέας του έργου). EmDoT: ανάπτυξη και υποστήριξη της λύσης Dot.Waste. Telekom: ευθύνη υλοποίησης και ολοκλήρωσης.</p>
+262|    </div>
+263|    <div class="card"><h4>Παραδοτέο υλικό</h4>
+264|      <p>Ταινία περίπου 5 λεπτών (UHD Format) και 3 cut versions (αναλογία 9:16) για χρήση σε social media.</p>
+265|    </div>
+266|  </div>
+267|</div></section>
+268|<!-- 3. ΣΕΝΑΡΙΟ -->
+269|<section id="prosengisi"><div class="wrap">
+270|  <h2>Σκηνοθετική Προσέγγιση</h2>
+271|  <div class="app-wrap">
+272|    <p class="app-intro">Ο Δήμος αναζητεί μια τεχνολογικά πρωτοποριακή λύση ώστε να κάνει πιο παραγωγικό το χρόνο εργασίας των υπηρεσιών καθαριότητας. Ναι μεν πρόκειται για μια υπηρεσία που στο τέλος απολαμβάνει ο πολίτης, αλλά ουσιαστικά δεν βλέπει ν' αλλάζει κάτι στο περιβάλλον του άμεσα. Η πόλη είναι ήδη καθαρή. Αυτή είναι η ιδιαιτερότητα του έργου. Αυτό είναι η ταινία μας. Μια ματιά στα παρασκήνια.</p>
+273|    <div class="app-acc">
+274|    <details class="app-item">
+275|      <summary class="app-sum"><span class="app-ico">+</span>Η Ανάγκη</summary>
+276|      <div class="app-body">
+277|        <p>Ο Δήμος χρειάζεται πληροφορίες: Ποιος κάδος είναι γεμάτος; Ποια διαδρομή να ακολουθήσουμε; Πού υπάρχει κάποιο τεχνικό πρόβλημα;</p>
+278|        <p>Πληροφορίες που εξοικονομούν χρόνο και χρήμα. Ώστε να λαμβάνονται οι σωστές αποφάσεις.</p>
+279|        <p>Σωστά δρομολόγια σημαίνουν λιγότερη κατανάλωση ενέργειας, λιγότερη συντήρηση στα οχήματα και τα εμπλεκόμενα μηχανήματα και μηχανοστάσια, καλύτερα ωράρια για τους εργαζόμενους υγείας.</p>
+280|      </div>
+281|    </details>
+282|    <details class="app-item">
+283|      <summary class="app-sum"><span class="app-ico">+</span>Η υλοποίηση</summary>
+284|      <div class="app-body">
+285|        <p>Μια τέτοια λύση απαιτεί μια ικανή εταιρεία τεχνολογίας για να τη φέρει εις πέρας. Αισθητήρες σε κάδους, στη βροχή, στη ζέστη, στο κρύο. Κέντρο ελέγχου για παρακολούθηση και καταγραφή 24 ώρες το 24ωρο.</p>
+286|        <p>Έτσι εμφανίζεται το εργαστήριο της EmDot. Οθόνες υπολογιστών. Ηλεκτρονική συναρμολόγιση. Μηχανουργείο. (Σημ.: Δεν υπάρχουν τα λογότυπά της EmDoT κατά τη διάρκεια του φιλμ). Επεξηγούμε την πρόκληση, την πολυπλοκότητα, τη λύση, το επίτευγμα.</p>
+287|      </div>
+288|    </details>
+289|    <details class="app-item">
+290|      <summary class="app-sum"><span class="app-ico">+</span>Το αντίκτυπο στην κοινωνία</summary>
+291|      <div class="app-body">
+292|        <p>Ολοκληρώνουμε την αφήγησή μας με το αποτέλεσμα. Ο Εργαζόμενος, ο υπεύθυνος καθαριότητας και κάποιος εκπρόσωπος πολιτών που έζησαν το αποτέλεσμα ενός τέτοιου έργου. Καθαροί δρόμοι, καλύτερα ωράρια, εξοικονόμηση πόρων. Το βιωματικό τους ταξίδι, η δική τους οπτική γωνία.</p>
+293|      </div>
+294|    </details>
+295|    <details class="app-item">
+296|      <summary class="app-sum"><span class="app-ico">+</span>Εικόνα</summary>
+297|      <div class="app-body">
+298|        <p>Φωτισμένοι και καδραρισμένοι με τέτοιο τρόπο ώστε να επικεντρώνεται το μάτι του θεατή επάνω τους. Εκείνοι (ο καθένας ξεχωριστά), χαλαροί σαν κάποιος να τους παίρνει συνέντευξη, δεν κοιτούν κάμερα απευθείας. Αυτό θα ήταν περισσότερο σαν διάγγελμα παρά μια χαλαρή συζήτηση. Το ντύσιμό τους, business casual, κάνει αντίθεση με το λιτό φόντο. (π.χ. ανοιχτόχρωμο φόντο - σκουρόχρωμο ντύσιμο). Ήχος με ασύρματα μικρόφωνα πέτου μας φέρνει κοντά στον ομιλητή, νιώθουμε οικεία.</p>
+299|        <p>Όλη η ταινία "ντύνεται" με πλάνα από το δήμο (b-roll), τα σημεία του έργου και το εργαστήριο. Κάνοντας ακόμη πιο immersive την εμπειρία του θεατή. Οι ώρες που θα γίνουν τα εξωτερικά γυρίσματα θα πρέπει να είναι ή με το φρέσκο φως της ημέρας ή με το χρυσαφένιο της δύσης. Προσθέτοντας έτσι ένα επίπεδο συναισθηματικού βάθους που δεν συναντάς συχνά σε ένα εταιρικό φιλμ.</p>
+300|      </div>
+301|    </details>
+302|    <details class="app-item">
+303|      <summary class="app-sum"><span class="app-ico">+</span>Ήχος</summary>
+304|      <div class="app-body">
+305|        <p>Ανάμεσα στις συνεντεύξεις μια ζεστή (ανδρική ή γυναικεία) φωνή συμπληρώνει το storyline μεταφέροντάς μας από ενότητα σε ενότητα με έξυπνο και διακριτικό τρόπο.</p>
+306|        <p>Η μουσική υπογραμμίζει τις 3 πράξεις της ταινίας. Χαλαρή εισαγωγή για την παρουσίαση της ανάγκης του δήμου. Τεχνολογικό ηχόχρωμα στην ανάπτυξη της λύσης. Αισιόδοξο κινηματογραφικό τελείωμα αφήνει μια δημιουργική νότα και την αίσθηση ότι κάτι μεγάλο γίνεται ακόμα κι αν δεν φαίνεται με την πρώτη ματιά.</p>
+307|      </div>
+308|    </details>
+309|    <details class="app-item">
+310|      <summary class="app-sum"><span class="app-ico">+</span>Αποτέλεσμα</summary>
+311|      <div class="app-body">
+312|        <p>Με αυτά τα στοιχεία και με την κάρτα των γραφιστικών που αποδίδει την υλοποίηση του έργου στο Δήμο, την EmDot και την Telekom, αφήνουμε ένα πολύ ηχηρό μήνυμα στο θεατή: Ένας Δήμος για τον πολίτη. Εγχώρια τεχνολογία. Εξελιγμένη διασύνδεση.</p>
+313|      </div>
+314|    </details>
+315|    </div>
+316|  </div>
+317|</div></section>
+318|
+319|<section id="senario"><div class="wrap">
   <h2>Σενάριο και Breakdown</h2>
 
   <div class="act"><div class="act-num">A</div><div class="act-body">
@@ -325,14 +325,14 @@ footer .fline b{color:var(--ink); font-weight:700;}
   </div></div>
 
   <div class="tbl-scroll"><table>
-    <thead><tr><th>Α/Α</th><th>Χρόνος</th><th>Διάρκ.</th><th>Είδος</th><th>Πρόσωπο</th><th>Τι συμβαίνει</th></tr></thead>
+    <thead><tr><th>Α/Α</th><th>Χρόνος</th><th>Διάρκ.</th><th>Είδος</th><th>Πρόσωπο</th><th>Σενάριο &amp; Περιεχόμενο</th></tr></thead>
     <tbody>
       <tr><td class="id">01</td><td class="mono">00:00-00:15</td><td>15΄΄</td><td><span class="badge b-af">ΑΦ</span></td><td>-</td><td>«Η πόλη ξεκινά από τη γειτονιά. Έναν καθαρό δρόμο, μια ασφαλή βάρδια, μια δημόσια υπηρεσία που γνωρίζει τι χρειάζεται και δρα έγκαιρα. Όταν τα δεδομένα γίνονται αποφάσεις, η τεχνολογία αποκτά πραγματικό νόημα.»</td></tr>
-      <tr><td class="id">02</td><td class="mono">00:15-00:34</td><td>19΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Δήμαρχος</b></td><td>Ερ.1: ποια πόλη θέλετε να βιώνει ο πολίτης καθημερινά.</td></tr>
-      <tr><td class="id">03</td><td class="mono">00:34-00:42</td><td>8΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εκπρόσωπος / Δάσκαλος</b></td><td>Ερ.1: τι άλλαξε στην καθημερινότητα.</td></tr>
+      <tr><td class="id">02</td><td class="mono">00:15-00:34</td><td>19΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Δήμαρχος</b></td><td><b>Ερώτηση:</b> «Ποια πόλη θέλετε να βιώνει καθημερινά ο πολίτης και πώς βοηθούν τα δεδομένα να γίνει πραγματικότητα;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Εργαζόμαστε σήμερα για μία εικόνα από το κοντινό μέλλον όπου ενέργεια, νερό, κινητικότητα και απόβλητα διαχειρίζονται σε πραγματικό χρόνο. Οι υπηρεσίες προσαρμόζονται ανά περιοχή και εποχή, με διαφανή αποτελέσματα και σεβασμό στους ανθρώπους.</span></td></tr>
+      <tr><td class="id">03</td><td class="mono">00:34-00:42</td><td>8΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εκπρόσωπος κοινωνίας πολιτών</b></td><td><b>Ερώτηση:</b> «Τι έχει αλλάξει στην καθημερινότητά σας χάρη στη νέα πολιτική της καθαριότητας; / Ποιο καθημερινό σημάδι σάς δείχνει ότι η πόλη φροντίζει πραγματικά τους ανθρώπους της;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Μία προσωπική αφήγηση / φράση για καθαριότητα, ασφάλεια ή έγκαιρη ανταπόκριση.</span></td></tr>
       <tr><td class="id">04</td><td class="mono">00:42-00:58</td><td>16΄΄</td><td><span class="badge b-af">ΑΦ</span></td><td>-</td><td>«Ο Δήμος Βάρης Βούλας Βουλιαγμένης εφάρμοσε πρώτος στην Ελλάδα ένα ολοκληρωμένο σύστημα Smart Waste Management σε επιχειρησιακή κλίμακα. Σήμερα η πρωτοπορία αυτή αποδίδει. Η αποκομιδή οργανώνεται με βάση την πραγματική ανάγκη κάθε περιοχής.»</td></tr>
-      <tr><td class="id">05</td><td class="mono">00:58-01:10</td><td>12΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Υπεύθυνος Καθαριότητας</b></td><td>Ερ.1: ποια πληροφορία έλειπε πριν το σύστημα.</td></tr>
-      <tr><td class="id">06</td><td class="mono">01:10-01:21</td><td>11΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εργαζόμενος αποκομιδής</b></td><td>Ερ.1: πώς ξεκινούσε η βάρδια παλιά και πώς σήμερα.</td></tr>
+      <tr><td class="id">05</td><td class="mono">00:58-01:10</td><td>12΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Υπεύθυνος Καθαριότητας</b></td><td><b>Ερώτηση:</b> «Πριν από το σύστημα, ποια πληροφορία/ες σας έλειπε/αν και τι άλλαξε όταν την αποκτήσατε;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Μία συγκεκριμένη διαφορά ή και δεύτερη σε ξεκάθαρη ιεραρχία: πραγματική πληρότητα, λιγότερη αβεβαιότητα ή καλύτερη διάθεση οχημάτων.</span></td></tr>
+      <tr><td class="id">06</td><td class="mono">01:10-01:21</td><td>11΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εργαζόμενος στην αποκομιδή</b></td><td><b>Ερώτηση:</b> «Πώς ξεκινούσε η βάρδιά σας παλαιότερα και πώς ξεκινά σήμερα;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Απλή σύγκριση πριν και σήμερα, χωρίς τεχνικούς όρους.</span></td></tr>
     </tbody>
   </table></div>
 
@@ -342,13 +342,13 @@ footer .fline b{color:var(--ink); font-weight:700;}
   </div></div>
 
   <div class="tbl-scroll"><table>
-    <thead><tr><th>Α/Α</th><th>Χρόνος</th><th>Διάρκ.</th><th>Είδος</th><th>Πρόσωπο</th><th>Τι συμβαίνει</th></tr></thead>
+    <thead><tr><th>Α/Α</th><th>Χρόνος</th><th>Διάρκ.</th><th>Είδος</th><th>Πρόσωπο</th><th>Σενάριο &amp; Περιεχόμενο</th></tr></thead>
     <tbody>
       <tr><td class="id">07</td><td class="mono">01:21-01:44</td><td>23΄΄</td><td><span class="badge b-af">ΑΦ</span></td><td>-</td><td>«Το σύστημα λειτουργεί ήδη σε 1.000 κάδους και επεκτείνεται σε ακόμη 2.000. Με την TELEKOM στην ευθύνη υλοποίησης και ολοκλήρωσης, η ασφαλής διασύνδεση ενώνει το πεδίο με τα κεντρικά συστήματα. Η EmDoT αναπτύσσει και υποστηρίζει την ολοκληρωμένη τεχνολογική λύση που μετατρέπει τα δεδομένα σε καθημερινή λειτουργία.»</td></tr>
-      <tr><td class="id">08</td><td class="mono">01:44-01:56</td><td>12΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Υπεύθυνος</b></td><td>Ερ.2: τι ξέρει η υπηρεσία πριν στείλει το όχημα στον δρόμο.</td></tr>
-      <tr><td class="id">09</td><td class="mono">01:56-02:07</td><td>11΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εργαζόμενος</b></td><td>Ερ.2: ποια αλλαγή κάνει τη βάρδια πιο απλή ή ασφαλή.</td></tr>
+      <tr><td class="id">08</td><td class="mono">01:44-01:56</td><td>12΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Υπεύθυνος Καθαριότητας</b></td><td><b>Ερώτηση:</b> «Τι γνωρίζει πλέον η υπηρεσία πριν στείλει ένα όχημα στον δρόμο;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Πληρότητα, θέση, αναμενόμενο βάρος και διαθέσιμη χωρητικότητα του οχήματος.</span></td></tr>
+      <tr><td class="id">09</td><td class="mono">01:56-02:07</td><td>11΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εργαζόμενος στην αποκομιδή</b></td><td><b>Ερώτηση:</b> «Ποια αλλαγή κάνει τη βάρδιά σας πιο απλή ή πιο ασφαλή;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Μία μόνο αλλαγή, για παράδειγμα καθαρότερη σειρά στάσεων ή καλύτερος έλεγχος φόρτου.</span></td></tr>
       <tr><td class="id">10</td><td class="mono">02:07-02:35</td><td>28΄΄</td><td><span class="badge b-af">ΑΦ</span></td><td>-</td><td>«Η καινοτομία του συστήματος Dot.Waste® βρίσκεται στην ολοκλήρωση. Κάδοι, οχήματα και αποκομιδές αποκτούν ψηφιακή ταυτότητα. Η πληροφορία γίνεται πρόβλεψη και η πρόβλεψη γίνεται απόφαση πριν ξεκινήσει το δρομολόγιο. Το Dot.SmartBins® παρακολουθεί τις ανάγκες. Το κατοχυρωμένο με δίπλωμα ευρεσιτεχνίας Dot.Weighing® ταυτοποιεί και ζυγίζει αυτόματα κάθε κάδο, χωρίς να διακόπτει την αποκομιδή. Η λύση δρομολόγησης οργανώνει διαδρομές, οχήματα και διαθέσιμη χωρητικότητα. Με παραμετροποίηση, εκπαίδευση και συνεχή υποστήριξη, η τεχνολογία ενσωματώνεται στην καθημερινή λειτουργία της υπηρεσίας.»</td></tr>
-      <tr><td class="id">11</td><td class="mono">02:35-02:55</td><td>20΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Δήμαρχος</b></td><td>Ερ.2: από πιλοτική εφαρμογή σε σύστημα που λειτουργεί καθημερινά.</td></tr>
+      <tr><td class="id">11</td><td class="mono">02:35-02:55</td><td>20΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Δήμαρχος</b></td><td><b>Ερώτηση:</b> «Πώς περάσατε από μια πιλοτική εφαρμογή σε ένα σύστημα που λειτουργεί καθημερινά σε ολόκληρο τον Δήμο;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Η καθαρή ιδέα είναι ότι το έργο σχεδιάστηκε σε πλήρη κλίμακα, συνδέθηκε με τη λειτουργία της υπηρεσίας και εκπαιδεύτηκαν οι άνθρωποι που το χρησιμοποιούν.</span></td></tr>
     </tbody>
   </table></div>
 
@@ -358,439 +358,439 @@ footer .fline b{color:var(--ink); font-weight:700;}
   </div></div>
 
   <div class="tbl-scroll"><table>
-    <thead><tr><th>Α/Α</th><th>Χρόνος</th><th>Διάρκ.</th><th>Είδος</th><th>Πρόσωπο</th><th>Τι συμβαίνει</th></tr></thead>
+    <thead><tr><th>Α/Α</th><th>Χρόνος</th><th>Διάρκ.</th><th>Είδος</th><th>Πρόσωπο</th><th>Σενάριο &amp; Περιεχόμενο</th></tr></thead>
     <tbody>
-      <tr><td class="id">12</td><td class="mono">02:55-03:08</td><td>13΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Υπεύθυνος</b></td><td>Ερ.3: ποιο αποτέλεσμα δείχνει ότι αποδίδει. Super 25-30% λιγότερα χιλιόμετρα.</td></tr>
+      <tr><td class="id">12</td><td class="mono">02:55-03:08</td><td>13΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Υπεύθυνος Καθαριότητας</b></td><td><b>Ερώτηση:</b> «Ποιο αποτέλεσμα δείχνει πιο καθαρά ότι το σύστημα αποδίδει;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Προτείνεται να επιλεγεί ο δείκτης 25–30% λιγότερα χιλιόμετρα και διάρκεια διαδρομών. Δεν χρειάζεται να απαριθμηθούν όλα τα οφέλη.</span></td></tr>
       <tr><td class="id">13</td><td class="mono">03:08-03:25</td><td>17΄΄</td><td><span class="badge b-af">ΑΦ</span></td><td>-</td><td>«Το αποτέλεσμα δεν περιορίζεται στα δρομολόγια. Με επτά ρεύματα διαλογής στην πηγή, ο Δήμος κρατά ήδη το 50% των αποβλήτων μακριά από την ταφή. Τα βιοαπόβλητα γίνονται πιστοποιημένο εδαφοβελτιωτικό και επιστρέφουν στον κύκλο ως χρήσιμο υλικό.»</td></tr>
-      <tr><td class="id">14</td><td class="mono">03:25-03:34</td><td>9΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εκπρόσωπος / Δάσκαλος</b></td><td>Ερ.2: τι αλλάζει στη γειτονιά όταν οι κάδοι μένουν καθαροί.</td></tr>
-      <tr><td class="id">15</td><td class="mono">03:34-03:44</td><td>10΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εργαζόμενος</b></td><td>Ερ.3: πώς καταλαβαίνεις ότι η δουλειά έγινε καλύτερα.</td></tr>
+      <tr><td class="id">14</td><td class="mono">03:25-03:34</td><td>9΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εκπρόσωπος κοινωνίας πολιτών</b></td><td><b>Ερώτηση:</b> «Τι αλλάζει στη γειτονιά όταν οι κάδοι μένουν καθαροί και τα οχήματα κινούνται μόνο όπου χρειάζεται;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Μία καθημερινή συνέπεια για την ηρεμία, την υγεία ή την ποιότητα του δημόσιου χώρου.</span></td></tr>
+      <tr><td class="id">15</td><td class="mono">03:34-03:44</td><td>10΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Εργαζόμενος στην αποκομιδή</b></td><td><b>Ερώτηση:</b> «Στο τέλος μιας καλής βάρδιας, πώς καταλαβαίνετε ότι η δουλειά έγινε καλύτερα;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Μία ανθρώπινη ένδειξη: ασφαλής επιστροφή, καθαρή διαδρομή, λιγότερες περιττές στάσεις ή σωστή ολοκλήρωση.</span></td></tr>
       <tr><td class="id">16</td><td class="mono">03:44-04:00</td><td>16΄΄</td><td><span class="badge b-af">ΑΦ</span></td><td>-</td><td>«Η ίδια καταγραφή δημιουργεί τη βάση για το PAYT. Η χρέωση μπορεί να βασίζεται στο πραγματικό βάρος. Οι εξοικονομήσεις από τις καλύτερα οργανωμένες διαδρομές μπορούν να επανεπενδύονται στην υπηρεσία, με στόχο ένα σύστημα που σταδιακά καλύπτει το κόστος του.»</td></tr>
-      <tr><td class="id">17</td><td class="mono">04:00-04:31</td><td>31΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Δήμαρχος</b></td><td>Ερ.3: τι μπορούν να κρατήσουν άλλες πόλεις. Κλείσιμο της ταινίας.</td></tr>
+      <tr><td class="id">17</td><td class="mono">04:00-04:31</td><td>31΄΄</td><td><span class="badge b-syn">ΣΥΝ</span></td><td><b>Δήμαρχος</b></td><td><b>Ερώτηση:</b> «Ως ο πρώτος Δήμος στην Ελλάδα που εφαρμόζει ένα ολοκληρωμένο μοντέλο αυτής της κλίμακας, τι αποδεικνύει η εμπειρία σας και τι μπορούν να κρατήσουν άλλες πόλεις;»<br><span style="display:inline-block; margin-top:4px; color:var(--muted); font-size:12.5px;"><b>Κατεύθυνση απάντησης:</b> Καθημερινή δημόσια υποδομή και όχι πιλοτική εφαρμογή, επτά ρεύματα διαλογής από το 2016, αξιοποίηση βιοαποβλήτων σε πιστοποιημένο εδαφοβελτιωτικό, πάνω από 50% εκτροπή από την ταφή και στόχος 70–72%. Κλείσιμο: το μοντέλο προσαρμόζεται στις ανάγκες κάθε πόλης. (Η διατύπωση «πρώτος Δήμος στην Ελλάδα» χρειάζεται τελική θεσμική έγκριση).</span></td></tr>
       <tr><td class="id">18</td><td class="mono">04:31-04:49</td><td>18΄΄</td><td><span class="badge b-af">ΑΦ</span></td><td>-</td><td>«Αρθρωτή και παραμετροποιήσιμη, η λύση μπορεί να ξεκινήσει από έναν κάδο ή μια γειτονιά και να επεκταθεί σε ολόκληρη πόλη. Η στρατηγική του Δήμου Βάρης Βούλας Βουλιαγμένης παρουσιάστηκε στο Smart City Expo World Congress στη Βαρκελώνη και, με κλίμακα έως 3.000 κάδους, δείχνει πώς ένα ελληνικό μοντέλο μπορεί να ταξιδέψει στις πόλεις του κόσμου.»</td></tr>
-      <tr><td class="id">19</td><td class="mono">04:49-04:55</td><td>6΄΄</td><td><span class="badge b-gr">ΓΡΑΦ</span></td><td>-</td><td>End frame: λογότυπα Δήμου, EmDoT, Telekom.</td></tr>
+      <tr><td class="id">19</td><td class="mono">04:49-04:55</td><td>6΄΄</td><td><span class="badge b-gr">ΓΡΑΦ</span></td><td>-</td><td>End frame: λογότυπα Δήμου Βάρης Βούλας Βουλιαγμένης, EmDoT, Telekom.</td></tr>
     </tbody>
   </table></div>
 </div></section>
-
-<!-- 4. ΠΡΟΓΡΑΜΜΑ -->
-<section id="programma"><div class="wrap">
-  <h2>Πρόγραμμα και τοποθεσίες</h2>
-
-  <div class="acc-wrap">
-  <div class="acc-list">
-  <details class="acc-item">
-    <summary class="acc-sum"><span class="acc-ico">+</span>Ημέρα 1 · 08:00-20:00</summary>
-    <div class="acc-body">
-      <p class="nt" style="margin:0 0 10px">Αμαξοστάσιο, Δημαρχείο, πλατείες, παραλιακό μέτωπο. 4 setups, 11 απαντήσεις.</p>
-      <div class="tbl-scroll"><table>
-        <thead><tr><th>Από</th><th>Έως</th><th>Τι γυρίζεται</th><th>Σκ.</th></tr></thead>
-        <tbody>
-          <tr><td class="mono">08:00</td><td class="mono">09:45</td><td>Αμαξοστάσιο, Εργαζόμενος 3 απαντήσεις δίπλα στο όχημα.</td><td>06, 09, 15</td></tr>
-          <tr><td class="mono">09:45</td><td class="mono">10:30</td><td>Μετακίνηση και στήσιμο Δημαρχείου.</td><td>setup</td></tr>
-          <tr><td class="mono">10:30</td><td class="mono">12:30</td><td>Δήμαρχος, 3 απαντήσεις σε ένα setup.</td><td>02, 11, 17</td></tr>
-          <tr><td class="mono">12:30</td><td class="mono">13:15</td><td>Δήμαρχος με στελέχη, εκπαίδευση, cutaways.</td><td>11</td></tr>
-          <tr><td class="mono">13:15</td><td class="mono">14:00</td><td>Διάλειμμα.</td><td>-</td></tr>
-          <tr><td class="mono">14:00</td><td class="mono">15:30</td><td>Υπεύθυνος Καθαριότητας, 3 απαντήσεις.</td><td>05, 08, 12</td></tr>
-          <tr><td class="mono">15:30</td><td class="mono">18:30</td><td>B-roll απόγευμα, χρυσή ώρα στο τέλος.</td><td>04, 13, 18</td></tr>
-          <tr><td class="mono">18:45</td><td class="mono">20:00</td><td>Εκπρόσωπος κοινωνίας πολιτών, 2 απαντήσεις.</td><td>03, 14</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-  </details>
-  <details class="acc-item">
-    <summary class="acc-sum"><span class="acc-ico">+</span>Ημέρα 2 · 07:00-19:00</summary>
-    <div class="acc-body">
-      <p class="nt" style="margin:0 0 10px">Αμαξοστάσιο, δρομολόγιο, EmDoT, πλατείες, παραλιακό. Λειτουργία και τεχνολογία το πρωί.</p>
-      <div class="tbl-scroll"><table>
-        <thead><tr><th>Από</th><th>Έως</th><th>Τι γυρίζεται</th><th>Σκ.</th></tr></thead>
-        <tbody>
-          <tr><td class="mono">07:00</td><td class="mono">08:00</td><td>Αμαξοστάσιο πριν τη βάρδια, φυσικός ήχος, ΜΑΠ.</td><td>01</td></tr>
-          <tr><td class="mono">08:00</td><td class="mono">10:30</td><td>Πραγματικό δρομολόγιο αποκομιδής, κάδοι, πλοήγηση.</td><td>04, 07, 09, 16</td></tr>
-          <tr><td class="mono">10:30</td><td class="mono">12:30</td><td>Παραγωγικός χώρος EmDoT, συναρμολόγηση.</td><td>10</td></tr>
-          <tr><td class="mono">12:30</td><td class="mono">13:15</td><td>Διάλειμμα και μετακίνηση.</td><td>-</td></tr>
-          <tr><td class="mono">13:15</td><td class="mono">15:00</td><td>EmDoT συνέχεια, εγκατάσταση σε σταθμευμένο όχημα.</td><td>10</td></tr>
-          <tr><td class="mono">15:00</td><td class="mono">19:00</td><td>B-roll απόγευμα, πλατείες, παραλιακό, κυκλικό κλείσιμο.</td><td>04, 13, 18</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-  </details>
-  <details class="acc-item">
-    <summary class="acc-sum"><span class="acc-ico">+</span>Προτεινόμενες τοποθεσίες για τις συνεντεύξεις</summary>
-    <div class="acc-body">
-      <div class="tbl-scroll"><table>
-        <thead><tr><th>Πρόσωπο</th><th>Πραγματικός χώρος</th><th>Σκηνές</th><th>Θερμοκρασία</th></tr></thead>
-        <tbody>
-          <tr><td><b>Δήμαρχος</b></td><td>Αίθουσα Δημοτικού Συμβουλίου, Δημαρχείο (Λ. Κ. Καραμανλή 18, Βούλα)</td><td>02, 11, 17</td><td>4400 K</td></tr>
-          <tr><td><b>Υπεύθυνος Καθαριότητας</b></td><td>Χώρος επιχειρησιακής σύσκεψης υπηρεσίας, Δημαρχείο (οθόνη με ήρεμο χάρτη)</td><td>05, 08, 12</td><td>4700 K</td></tr>
-          <tr><td><b>Δάσκαλος (Εκπρόσωπος)</b></td><td>2ο Δημοτικό Σχολείο Βούλας (Ασκληπιού &amp; Πλαπούτα 7, Βούλα)</td><td>03, 14</td><td>5600 K</td></tr>
-          <tr><td><b>Εργαζόμενος αποκομιδής</b></td><td>Αμαξοστάσιο / στόλος οχημάτων καθαριότητας του Δήμου</td><td>06, 09, 15</td><td>4700-5000 K</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-  </details>
-  <details class="acc-item">
-    <summary class="acc-sum"><span class="acc-ico">+</span>Τοποθεσίες γυρίσματος βάση σεναρίου.</summary>
-    <div class="acc-body">
-      <p class="lead" style="margin:0 0 10px">Ιδανικά να γίνει ρεπεράζ 1-2 ημέρες πριν το γύρισμα, για να κλειδώσουν οι τελικές τοποθεσίες.</p>
-      <div class="tbl-scroll"><table>
-        <thead><tr><th>Ζώνη</th><th>Σημείο</th><th>Είδος</th><th>Φως</th><th>Σκηνές</th></tr></thead>
-        <tbody>
-          <tr><td>Δημαρχείο</td><td>Θεσμικός χώρος (Δήμαρχος)</td><td>ΕΣΩΤ</td><td>Όποια ώρα</td><td>02, 11, 17</td></tr>
-          <tr><td>Δημαρχείο</td><td>Αίθουσα συσκέψεων (Υπεύθυνος)</td><td>ΕΣΩΤ</td><td>Όποια ώρα</td><td>05, 08, 12</td></tr>
-          <tr><td>Αμαξοστάσιο</td><td>Αμαξοστάσιο καθαριότητας</td><td>ΕΞΩΤ</td><td>Πρωί, πριν τη βάρδια</td><td>01, 06, 09, 15</td></tr>
-          <tr><td>Αστικός κορμός</td><td>Πλατεία Ιμίων &amp; Λεωφ. Βασιλέως Παύλου</td><td>ΕΞΩΤ</td><td>Απόγευμα</td><td>04, 13</td></tr>
-          <tr><td>Αστικός κορμός</td><td>Πλατεία Νυμφών</td><td>ΕΞΩΤ</td><td>Απόγευμα</td><td>04, 13</td></tr>
-          <tr><td>Αστικός κορμός</td><td>Κεντρική Πλατεία Βάρκιζας</td><td>ΕΞΩΤ</td><td>Απόγευμα</td><td>04, 13</td></tr>
-          <tr><td>Αστικός κορμός</td><td>Δρόμος, πραγματικό δρομολόγιο</td><td>ΕΞΩΤ</td><td>Πρωί, δρομολόγιο</td><td>04, 07, 09, 16</td></tr>
-          <tr><td>Παραλιακό μέτωπο</td><td>Παραλιακό μέτωπο Βουλιαγμένης</td><td>ΕΞΩΤ</td><td>Απόγευμα και δύση</td><td>01, 18</td></tr>
-          <tr><td>Παραλιακό μέτωπο</td><td>Παραλία Δημαρχείου, Βούλα</td><td>ΕΞΩΤ</td><td>Απόγευμα</td><td>01, 03</td></tr>
-          <tr><td>EmDoT</td><td>Παραγωγικός χώρος EmDoT</td><td>ΕΣΩΤ</td><td>Όποια ώρα</td><td>10</td></tr>
-          <tr><td>EmDoT</td><td>Αυλή με σταθμευμένο όχημα</td><td>ΕΞΩΤ</td><td>Μεσημέρι</td><td>07, 10</td></tr>
-        </tbody>
-      </table></div>
-    </div>
-  </details>
-
-  <details class="acc-item">
-    <summary class="acc-sum"><span class="acc-ico">+</span>Γενικές οδηγίες</summary>
-    <div class="acc-body">
-  <p class="lead"><b>Χώρος.</b> Κριτήριο για την επιλογή χώρου είναι το τι κάνει πίσω από τον άνθρωπο που μιλά. Θέλουμε καθαρό φόντο, χωρίς ακαταστασία και χωρίς πολλά αντικείμενα. Ο φωτισμός ομοιόμορφος και φωτεινός, χωρίς περίεργες σκιές και χωρίς παράθυρο πίσω από τον ομιλητή. Ο χώρος να ενισχύει την αισιοδοξία: καθαρές γραμμές, φωτεινά υλικά, ζεστές αποχρώσεις, ένα ανθρώπινο εργασιακό περιβάλλον. Ιδανικά να δημιουργεί αντίθεση με τον συνεντευξιαζόμενο, ώστε να ξεχωρίζει: σε σκούρο χώρο ανοιχτόχρωμα ρούχα, σε φωτεινό χώρο πιο σκούρα. Ο άνθρωπος στο επίκεντρο.</p>
-  <p class="lead"><b>Ενδυματολογία.</b> Απλές μονόχρωμες παλέτες, καλά σιδερωμένες, χωρίς λογότυπα και χωρίς έντονα χρώματα. Καθένας φέρνει δύο επιλογές, ώστε να διαλέξουμε πάνω στον χώρο. Χωρίς ψιλά σχέδια, ρίγες, καρό ή πουά. Χωρίς αλλαγή ρούχων ανάμεσα στις λήψεις.</p>
-  <p class="lead"><b>Καθαριότητα.</b> Ό,τι φαίνεται στο κάδρο είναι καθαρό την ώρα του γυρίσματος. Οι κάδοι καλά κλειστοί, σκουπισμένοι εξωτερικά, χωρίς σκουπίδια γύρω τους. Τα οχήματα πλυμένα, χωρίς λάδια, σκόνη ή ζημιές. Το συνεργείο φοράει όλα τα προβλεπόμενα, κράνη, γάντια, γιλέκα, καθαρά και πλήρη. Ο χώρος καθαρός, χωρίς κιβώτια, καλώδια, σκούπες ή προσωπικά αντικείμενα στο φόντο. Ο Δήμος δεσμεύεται ότι οχήματα και κάδοι θα πλυθούν την προηγούμενη μέρα.</p>
-  <p class="lead"><b>Ήχος.</b> Ο χώρος ήσυχος, μακριά από δρόμο, κλιματιστικά, ψυγεία και ανεμιστήρες. Την ώρα της λήψης κλείνουν τα κλιματιστικά και τα κινητά σιωπηλά.</p>
-  <p class="lead"><b>Σταθερότητα ανάμεσα στις συνεντεύξεις.</b> Για να μπουν όλες οι απαντήσεις στην ίδια ταινία, κρατάμε ίδια απόσταση από τον ομιλητή, μηχανή στο ύψος των ματιών, και όσο το δυνατόν σε παρόμοιο φωτισμό. Το βασικό βίντεο είναι 16:9, αλλά φροντίζουμε από το γύρισμα να κόβεται εύκολα σε 9:16: ο άνθρωπος στο κέντρο του κάδρου, τίποτα σημαντικό στις άκρες.</p>
-  <p class="lead"><b>Ο άνθρωπος μπροστά στην κάμερα.</b> Πριν γυρίσουμε, εξηγούμε ότι δεν υπάρχει σωστό και λάθος, ότι δεν διαβάζει κείμενο, και ότι θέλουμε τα λόγια με τον δικό του τρόπο. Μια μικρή παύση πριν από κάθε απάντηση δίνει ανάσα στην εικόνα. Στην απάντηση περιλαμβάνεται η ερώτηση, ώστε να στέκει μόνη της μέσα στην ταινία. Παράδειγμα:</p>
-  <p class="lead"><b>Ερώτηση:</b> Τι άλλαξε για τη γειτονιά;</p>
-  <p class="lead"><b>Απάντηση που δεν στέκει:</b> Είναι πιο καθαρά.</p>
-  <p class="lead"><b>Απάντηση που θέλουμε:</b> Για τη γειτονιά, αυτό που άλλαξε είναι ότι ο δρόμος μένει καθαρός όλη μέρα, γιατί πάμε στους κάδους πριν γεμίσουν.</p>
-  <p class="lead"><b>Τι δεν μπαίνει στο κάδρο.</b> Λογότυπα άλλων εταιριών, πινακίδες οχημάτων, στοιχεία πολιτών και προσωπικά δεδομένα σε οθόνες. Τα λογότυπα Δήμου, EmDoT και Telekom μπαίνουν μόνο με έγκριση του πελάτη.</p>
-
-  </div>
-</details>
-<details class="acc-item">
-  <summary class="acc-sum"><span class="acc-ico">+</span>Τι ζητάμε από τον Δήμο</summary>
-  <div class="acc-body">
-  <p class="lead"><b>Τοποθεσίες, άμεσα.</b> Ο Δήμος να προτείνει το συντομότερο τα σημεία γυρίσματος και τις εξωτερικές λήψεις, ώστε να κλειδώσουν το πρόγραμμα και το ρεπεράζ. Χωρίς αυτά το πρόγραμμα μένει ανοιχτό. Για τις συνεντεύξεις προτείνουμε το δημαρχείο, σε αίθουσα με καθαρό φόντο, ή κάποιο κτήριο της περιοχής με ιδιαίτερο αρχιτεκτονικό ενδιαφέρον.</p>
-  <p class="lead"><b>Άνθρωπος επαφής.</b> Ένα πρόσωπο, με όνομα, κινητό και email, που συντονίζει τα πάντα πριν και κατά τη διάρκεια των γυρισμάτων.</p>
-  <p class="lead"><b>Πρόσωπα στην κάμερα.</b> Ονόματα και ιδιότητες των τεσσάρων ομιλητών, με σωστή ορθογραφία, για τα ονόματα στην εικόνα.</p>
-  <p class="lead"><b>Έγκριση ερωτήσεων.</b> Ο Δήμος να εγκρίνει τις ερωτήσεις, ώστε οι ομιλητές να τις ξέρουν από πριν.</p>
-  <p class="lead"><b>Άδειες.</b> Να δοθούν όλες οι απαραίτητες άδειες.</p>
-  <p class="lead"><b>Απορριμματοφόρο και συνεργείο.</b> Ένα όχημα με δύο έως τέσσερα άτομα, σε συγκεκριμένη ώρα και δρομολόγιο, για τις λήψεις αποκομιδής.</p>
-  <p class="lead"><b>Λογότυπα.</b> Τα επίσημα λογότυπα του Δήμου σε υψηλή ανάλυση, για το τέλος του βίντεο.</p>
-  <p class="lead"><b>Ενημέρωση πολιτών.</b> Γραπτή ενημέρωση καταστημάτων και κατοίκων στους δρόμους που θα γυρίσουν.</p>
-  <p class="lead"><b>Την ημέρα του γυρίσματος.</b> Ο άνθρωπος επαφής παρών όλη τη διάρκεια. Κάθε ομιλητής στο σημείο μία ώρα νωρίτερα από τη λήψη του.</p>
-  <p class="lead"><b>Ρεπεράζ με τον Δήμο.</b> Προαιρετικό: ρεπεράζ μαζί με άνθρωπο του Δήμου για το κλείδωμα τοποθεσιών, ωρών και φωτός.</p>
-  </div>
-</details>
-</div>
-</div>
-</div></section>
-
-
-
-<!-- 6. CASTING -->
-<section id="casting"><div class="wrap">
-  <h2>Casting</h2>
-  <div class="castacc">
-    <div class="castacc-item">
-      <div class="castacc-imgwrap">
-        <img class="castacc-img" src="assets/cast/cast-01-dimarchos.jpg" alt="Sheet Δημάρχου" loading="lazy">
-        <div class="castacc-cap"><div class="castacc-name">Δήμαρχος</div><div class="castacc-title">Γρηγόρης Κωνσταντέλλος</div></div>
-      </div>
-      <div class="castacc-panel">
-        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">Γύρω στα 60</span></div>
-        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Εύρωστος, γεμάτος κορμός</span></div>
-        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Στρογγυλό, λεπτά γυαλιά χωρίς σκελετό</span></div>
-        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Σκούρο σακάκι, ανοιχτό πουκάμισο</span></div>
-        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Κανένα. Είναι ο ίδιος.</span></div>
-      </div>
-    </div>
-    <div class="castacc-item">
-      <div class="castacc-imgwrap">
-        <img class="castacc-img" src="assets/cast/cast-02-ypefthynos.jpg" alt="Sheet Υπευθύνου" loading="lazy">
-        <div class="castacc-cap"><div class="castacc-name">Υπεύθυνος</div><div class="castacc-title">Λειτουργός υπηρεσίας</div></div>
-      </div>
-      <div class="castacc-panel">
-        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">45-50</span></div>
-        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Μέσος, γεμάτος</span></div>
-        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Σκούρα μαλλιά με γκρι, αξύριστη όψη</span></div>
-        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Σκούρο μπλε πουκάμισο εργασίας</span></div>
-        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Άνδρας 40-50, καθαρή άρθρωση</span></div>
-      </div>
-    </div>
-    <div class="castacc-item">
-      <div class="castacc-imgwrap">
-        <img class="castacc-img" src="assets/cast/cast-03-ergazomenos.jpg" alt="Sheet Εργαζομένου" loading="lazy">
-        <div class="castacc-cap"><div class="castacc-name">Εργαζόμενος</div><div class="castacc-title">Αποκομιδή</div></div>
-      </div>
-      <div class="castacc-panel">
-        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">30-45</span></div>
-        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Λιτός, αδύνατος</span></div>
-        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Γωνιώδες, κοντό σκούρο γένι</span></div>
-        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Στολή εργασίας, ανακλαστικό γιλέκο, γάντια</span></div>
-        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Άνδρας 30-45, λαϊκός, καθημερινός</span></div>
-      </div>
-    </div>
-    <div class="castacc-item">
-      <div class="castacc-imgwrap">
-        <img class="castacc-img" src="assets/cast/cast-04-daskalos.jpg" alt="Sheet Δασκάλου" loading="lazy">
-        <div class="castacc-cap"><div class="castacc-name">Δάσκαλος</div><div class="castacc-title">Εκπρόσωπος πολιτών</div></div>
-      </div>
-      <div class="castacc-panel">
-        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">40-55</span></div>
-        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Μέσος</span></div>
-        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Ωοειδές, ζεστό βλέμμα</span></div>
-        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Καθημερινό πουκάμισο ή ζακέτα</span></div>
-        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Άνδρας 40-55, ζεστός, μετρημένος</span></div>
-      </div>
-    </div>
-    <div class="castacc-item">
-      <div class="castacc-imgwrap">
-        <img class="castacc-img" src="assets/cast/cast-05-daskala.jpg" alt="Sheet Δασκάλας, εναλλακτική εκδοχή" loading="lazy">
-        <div class="castacc-cap"><div class="castacc-name">Δασκάλα</div><div class="castacc-title">Εναλλακτική εκδοχή · Εκπρόσωπος πολιτών</div></div>
-      </div>
-      <div class="castacc-panel">
-        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">35-45</span></div>
-        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Μέτριο</span></div>
-        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Μεσογειακή εμφάνιση, ζεστό βλέμμα</span></div>
-        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Λιτή ενδυμασία, ζακέτα ή μπλούζα</span></div>
-        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Γυναίκα 35-45, εκπαιδευτικός, ζεστή και σίγουρη παρουσία</span></div>
-      </div>
-    </div>
-  </div>
-</div></section>
-
-<!-- 7. ΠΛΑΝΑ B-ROLL -->
-<section id="broll"><div class="wrap">
-  <h2>Storyboard</h2>
-  <div class="broll-grid" id="broll-grid"></div>
-</div></section>
-<!-- 8. ΜΟΥΣΙΚΗ -->
-<section id="mousiki"><div class="wrap">
-  <h2>Μουσική</h2>
-  <div class="mact">
-    <div class="mact-h"><b>Πράξη Α</b><span>Σκηνές 01 έως 06</span></div>
-    <div class="mtr">
-      <div class="mt"><div class="a">Flint</div><div class="b">what the first sip of coffee in the morning feels like</div></div>
-      <div class="md">1:10</div>
-      <audio controls preload="none" src="music/flint.mp3"></audio>
-    </div>
-    <div class="mtr">
-      <div class="mt"><div class="a">Jon Gegelman</div><div class="b">Morning Fog</div></div>
-      <div class="md">3:32</div>
-      <audio controls preload="none" src="music/morning-fog.mp3"></audio>
-    </div>
-  </div>
-  <div class="mact">
-    <div class="mact-h"><b>Πράξη Β</b><span>Σκηνές 07 έως 11</span></div>
-    <div class="mtr">
-      <div class="mt"><div class="a">Eliho</div><div class="b">Convergence Point</div></div>
-      <div class="md">2:06</div>
-      <audio controls preload="none" src="music/convergence-point.mp3"></audio>
-    </div>
-    <div class="mtr">
-      <div class="mt"><div class="a">Magiksolo</div><div class="b">Opening</div></div>
-      <div class="md">2:10</div>
-      <audio controls preload="none" src="music/opening.mp3"></audio>
-    </div>
-    <div class="mtr">
-      <div class="mt"><div class="a">Raz Burg</div><div class="b">District Zero</div></div>
-      <div class="md">2:19</div>
-      <audio controls preload="none" src="music/district-zero.mp3"></audio>
-    </div>
-  </div>
-  <div class="mact">
-    <div class="mact-h"><b>Πράξη Γ</b><span>Σκηνές 12 έως 19</span></div>
-    <div class="mtr">
-      <div class="mt"><div class="a">Peaks Valleys</div><div class="b">Mountains and Valleys</div></div>
-      <div class="md">3:42</div>
-      <audio controls preload="none" src="music/mountains-valleys.mp3"></audio>
-    </div>
-    <div class="mtr">
-      <div class="mt"><div class="a">Roberto Prado</div><div class="b">Deep Dive</div></div>
-      <div class="md">2:21</div>
-      <audio controls preload="none" src="music/deep-dive.mp3"></audio>
-    </div>
-    <div class="mtr">
-      <div class="mt"><div class="a">Steven Beddall</div><div class="b">Departure - Creative Cut - Slowed</div></div>
-      <div class="md">2:54</div>
-      <audio controls preload="none" src="music/departure.mp3"></audio>
-    </div>
-  </div>
-
-</div></section>
-<footer><div class="wrap">
-  <div class="fline">© 2026, Atheaton Media, All Rights Reserved</div>
-</div></footer>
-
-<script>
-// B-roll data: id, scene, location, lens, duration (΄΄ or Post/reuse), marker, description
-const BR = [
- {id:"K1",t:"kadro",img:"assets/frames/frame-01-dimarchos.jpg",name:"Α · Δήμαρχος",sc:"Σκ. 02, 11, 17",info:[["Χώρος","Αίθουσα Δημοτικού Συμβουλίου"],["Φακός","NIKKOR 80-200 @ ~100 mm, f/2.8"],["Απόσταση","2,5 m"],["Κάδρο","Μεσαίο κοντινό, ύψος ματιών"],["Φως","Panel softbox 35-40°, 4400 K"]]},
- {id:"K2",t:"kadro",img:"assets/frames/frame-02-ypefthynos.jpg",name:"Β · Υπεύθυνος",sc:"Σκ. 05, 08, 12",info:[["Χώρος","Σύσκεψη υπηρεσίας, οθόνη χάρτη"],["Φακός","NIKKOR 80-200 @ ~85 mm"],["Απόσταση","2,5-3 m"],["Κάδρο","Μεσαίο, πιο ανοιχτό από το Α"],["Φως","Πιο φωτεινό, μετωπικό, 4700 K"]]},
- {id:"K3",t:"kadro",img:"assets/frames/frame-04-daskalos.jpg",name:"Γ · Δάσκαλος",sc:"Σκ. 03, 14",info:[["Χώρος","2ο Δ.Σ. Βούλας, φωτεινή αίθουσα"],["Φακός","NIKKOR 80-200 @ ~85 mm"],["Απόσταση","1,8-2,2 m"],["Κάδρο","Μεσαίο, αέρας πάνω από το κεφάλι"],["Φως","Panel 5600 K, φως ημέρας"]]},
- {id:"K4",t:"kadro",img:"assets/frames/frame-03-ergazomenos.jpg",name:"Δ · Εργαζόμενος",sc:"Σκ. 06, 09, 15",info:[["Χώρος","Αμαξοστάσιο, στόλος οχημάτων"],["Φακός","NIKKOR 80-200 @ ~100 mm"],["Απόσταση","2-2,5 m"],["Κάδρο","Μεσαίο κοντινό, βιομηχανικό βάθος"],["Φως","Σκληρό κλειδί, 4700-5000 K"]]},
- {id:"01A",sc:"01",loc:"Παραλιακό μέτωπο Βουλιαγμένης",lens:"Drone · 24mm · EWS",dur:"20΄",mk:"BR · Παραλιακό άνοιγμα",d:"Δύση, ο ήλιος στο νερό, ακτογραμμή σε μία γραμμή. Άνοιγμα.",t:"shoot"},
- {id:"01B",sc:"01",loc:"Παραλία Δημαρχείου, Βούλα",lens:"A · 35mm · WS",dur:"10΄",mk:"ΑΦ 01",d:"Σύντομο σταθερό πλάνο της ακτής.",t:"shoot"},
- {id:"01C",sc:"01",loc:"Αστικός κορμός",lens:"A · 50mm · MS",dur:"12΄",mk:"ΑΦ 01",d:"Κατοικίες, εμπορικός δρόμος, άνθρωποι που ξεκινούν.",t:"shoot"},
- {id:"01D",sc:"01",loc:"Αμαξοστάσιο",lens:"A · 35mm · WS",dur:"12΄",mk:"BR · Παραλιακό άνοιγμα",d:"Εργαζόμενοι με ΜΑΠ, έλεγχος οχήματος, tablet.",t:"shoot"},
- {id:"02D",sc:"02",loc:"Δημαρχείο, δημόσιος χώρος",lens:"A · 50mm · MS",dur:"12΄",mk:"ΣΥΝ 02",d:"Δήμαρχος σε δημόσιο χώρο, επαφή με πολίτες.",t:"shoot"},
- {id:"02E",sc:"02",loc:"Παραλιακό μέτωπο, 3 ενότητες",lens:"Drone · 24mm · EWS",dur:"20΄",mk:"ΣΥΝ 02",d:"Ευρείες των τριών δημοτικών ενοτήτων.",t:"shoot"},
- {id:"03D",sc:"03",loc:"Δημόσιος χώρος, πλατεία του Δήμου",lens:"A · 35mm · MS",dur:"2΄",mk:"BR · Δήμαρχος δημόσια",d:"Δημόσιος χώρος με φυσική κίνηση ανθρώπων. Γέφυρα μετάβασης μετά τον Δήμαρχο.",t:"shoot"},
- {id:"04A",sc:"04",loc:"Δρόμος, δρομολόγιο",lens:"A · 200mm · WS",dur:"12΄",mk:"ΑΦ 02",d:"Απορριμματοφόρο μετωπικό με συμπίεση.",t:"shoot"},
- {id:"04B",sc:"04",loc:"Δρόμος, κάδοι",lens:"A · 35mm · WS · low",dur:"12΄",mk:"ΑΦ 02",d:"Κάδοι με διαφορετική πληρότητα σε σειρά.",t:"shoot"},
- {id:"04C",sc:"04",loc:"Πλατεία Ιμίων & Λεωφ. Βασ. Παύλου",lens:"A · 50mm · MS",dur:"12΄",mk:"ΑΦ 02",d:"Πλατεία ως γεωμετρία, πεζός διαγώνια.",t:"shoot"},
- {id:"04D",sc:"04",loc:"Πλατεία Νυμφών",lens:"A · 50mm · MS",dur:"12΄",mk:"ΑΦ 02",d:"Πυκνή καθημερινή κίνηση.",t:"shoot"},
- {id:"04E",sc:"04",loc:"Κεντρική Πλατεία Βάρκιζας",lens:"A · 35mm · gimbal · WS",dur:"12΄",mk:"ΑΦ 02",d:"Παραλιακή ενότητα, αργό πέρασμα.",t:"shoot"},
- {id:"04F",sc:"04",loc:"Post · γραφικά",lens:"Γραφικά χάρτη",dur:"Post",mk:"ΓΡΑΦ 04F",d:"Λιτός χάρτης των τριών ενοτήτων.",t:"post"},
- {id:"07A",sc:"07",loc:"Δρόμος, κάδος",lens:"A · 85mm macro · ECU",dur:"9΄",mk:"BR · Σκ.06-07",d:"Αισθητήρας πληρότητας στο καπάκι.",t:"shoot"},
- {id:"07B",sc:"07",loc:"EmDoT, αυλή",lens:"A · 50mm · CU",dur:"9΄",mk:"BR · Σκ.06-07",d:"Τηλεματική μονάδα στο όχημα.",t:"shoot"},
- {id:"07C",sc:"07",loc:"Δρόμος, καμπίνα",lens:"A · 35mm · POV · CU",dur:"9΄",mk:"ΑΦ 03",d:"Tablet στην καμπίνα του οχήματος.",t:"shoot"},
- {id:"07D",sc:"07",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΓΡΑΦ 07D",d:"Cloud πλατφόρμα, όχι κινηματογράφηση οθόνης.",t:"post"},
- {id:"07E",sc:"07",loc:"Post · γραφικά",lens:"Γραφικά σύνδεσης",dur:"Post",mk:"ΓΡΑΦ 07E",d:"Σύνδεση κάδου-οχήματος-κέντρου.",t:"post"},
- {id:"07F",sc:"07",loc:"Δρόμος, δρομολόγιο",lens:"A · τηλεφακός · WS",dur:"12΄",mk:"ΑΦ 03",d:"Χορογραφία στάσης, το πλήρωμα αδειάζει τον κάδο.",t:"shoot"},
- {id:"08C",sc:"08",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΣΥΝ 08",d:"Cutaway πλατφόρμας, δημιουργία δρομολογίου.",t:"post"},
- {id:"09D",sc:"09",loc:"Δρόμος, δρομολόγιο",lens:"A · 35mm · gimbal · MS",dur:"12΄",mk:"ΣΥΝ 09",d:"Πλοήγηση, προσέγγιση κάδου.",t:"shoot"},
- {id:"09E",sc:"09",loc:"Δρόμος, δρομολόγιο",lens:"A · τηλεφακός · WS",dur:"12΄",mk:"ΣΥΝ 09",d:"Συντονισμός οδηγού και πληρώματος.",t:"shoot"},
- {id:"10A",sc:"10",loc:"EmDoT, παραγωγικός χώρος",lens:"A · 85mm macro · ECU",dur:"9΄",mk:"BR · Σκ.09-10",d:"Χέρια τεχνικού σε συναρμολόγηση αισθητήρα.",t:"shoot"},
- {id:"10B",sc:"10",loc:"EmDoT",lens:"A · 50mm · CU",dur:"9΄",mk:"ΑΦ 04",d:"Τοποθέτηση RFID tag και reader.",t:"shoot"},
- {id:"10C",sc:"10",loc:"EmDoT",lens:"A · 50mm · CU",dur:"9΄",mk:"ΑΦ 04",d:"Τηλεματική μονάδα και load cells στον πάγκο.",t:"shoot"},
- {id:"10D",sc:"10",loc:"EmDoT",lens:"A · 35mm · MS",dur:"9΄",mk:"ΑΦ 04",d:"Τεχνικός έλεγχος, παραμετροποίηση.",t:"shoot"},
- {id:"10E",sc:"10",loc:"EmDoT, αυλή",lens:"A · 35mm · MS",dur:"12΄",mk:"BR · Σκ.09-10",d:"Εγκατάσταση σε σταθμευμένο όχημα, έλεγχος μετάδοσης.",t:"shoot"},
- {id:"10F",sc:"10",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΓΡΑΦ 10F",d:"Λογισμικό, χάρτης κάδων, πρόβλεψη.",t:"post"},
- {id:"10G",sc:"10",loc:"EmDoT",lens:"A · 85mm macro · ECU · high",dur:"9΄",mk:"ΑΦ 04",d:"Υφή πάγκου, εργαλεία, καθαρή διάταξη.",t:"shoot"},
- {id:"11D",sc:"11",loc:"Δημαρχείο",lens:"A · 35mm · MS",dur:"12΄",mk:"ΣΥΝ 11",d:"Δήμαρχος με στελέχη της υπηρεσίας.",t:"shoot"},
- {id:"11E",sc:"11",loc:"Δημαρχείο, αίθουσα",lens:"A · 50mm · MCU",dur:"12΄",mk:"ΣΥΝ 11",d:"Εκπαίδευση χειριστών.",t:"shoot"},
- {id:"11F",sc:"11",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΣΥΝ 11",d:"Προετοιμασία δρομολογίου, πλατφόρμα στο πεδίο.",t:"post"},
- {id:"11G",sc:"11",loc:"Δρόμος, δρομολόγιο",lens:"A · τηλεφακός · WS",dur:"12΄",mk:"ΣΥΝ 11",d:"Πραγματική αποκομιδή, το όχημα εκτελεί τη συλλογή.",t:"shoot"},
- {id:"12D",sc:"12",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΣΥΝ 12",d:"Ολοκληρωμένο δρομολόγιο στην οθόνη.",t:"post"},
- {id:"13A",sc:"13",loc:"Δρόμος, κάδος βιοαποβλήτων",lens:"A · 50mm · CU · low",dur:"9΄",mk:"ΑΦ 05",d:"Καφέ κάδος, χωριστή συλλογή βιοαποβλήτων.",t:"shoot"},
- {id:"13C",sc:"13",loc:"Εμπορικός δρόμος, καθημερινότητα",lens:"A · 50mm · MS",dur:"4,5΄",mk:"ΑΦ 05",d:"Καθημερινότητα της πόλης, άνθρωποι που κινούνται. Συμπληρώνει τη σκηνή 13.",t:"shoot"},
- {id:"14D",sc:"14",loc:"Δρόμος",lens:"A · 50mm · MS",dur:"10΄",mk:"ΣΥΝ 14",d:"Καθαρό πεζοδρόμιο, φυσική κίνηση.",t:"shoot"},
- {id:"14E",sc:"14",loc:"Δρόμος, μετά την αποκομιδή",lens:"A · 50mm · MS",dur:"10΄",mk:"ΣΥΝ 14",d:"Φυσική στιγμή του πληρώματος.",t:"shoot"},
- {id:"14F",sc:"14",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΣΥΝ 14",d:"Ένδειξη ολοκλήρωσης στην εφαρμογή.",t:"post"},
- {id:"16A",sc:"16",loc:"Δρόμος, δρομολόγιο",lens:"A · τηλεφακός · WS",dur:"12΄",mk:"BR · Σκ.15-16",d:"Το όχημα σε δρομολόγιο.",t:"shoot"},
- {id:"16B",sc:"16",loc:"Αστικός κορμός",lens:"A · 35mm · WS",dur:"10΄",mk:"BR · Σκ.15-16",d:"Γειτονιά, κατοικίες.",t:"shoot"},
- {id:"17D",sc:"17",loc:"Post · γραφικά",lens:"Γραφικά χάρτη",dur:"Post",mk:"ΓΡΑΦ 17D",d:"Χάρτης Δήμος, Ελλάδα, Ευρώπη.",t:"post"},
- {id:"17E",sc:"17",loc:"Δημαρχείο, γραφείο υπηρεσίας",lens:"A · 35mm · MS",dur:"reuse",mk:"ΣΥΝ 17",d:"Στελέχη της υπηρεσίας (reuse 11D).",t:"shoot"},
- {id:"17F",sc:"17",loc:"Δρόμος, κάδος βιοαποβλήτων",lens:"A · 50mm · CU · low",dur:"reuse",mk:"ΣΥΝ 17",d:"Διαλογή στην πηγή (reuse 13A).",t:"shoot"},
- {id:"18A",sc:"18",loc:"Παραλιακό μέτωπο Βουλιαγμένης",lens:"Drone · 24mm · EWS",dur:"20΄",mk:"BR 18A",d:"Δύση, κυκλικό κλείσιμο όπως το άνοιγμα.",t:"shoot"}
-];
-
-const grid = document.getElementById('broll-grid');
-
-function render(){
-  grid.innerHTML = '';
-  let shown = 0;
-  const kadros = BR.filter(b => b.t === 'kadro');
-  if (kadros.length){
-    const krow = document.createElement('div');
-    krow.className = 'b-kadro-row';
-    krow.innerHTML = kadros.map(b => {
-      const rows = b.info.map(r => '<div class="b-krow"><span class="kk">' + r[0] + '</span><span class="kv">' + r[1] + '</span></div>').join('');
-      return '<figure class="bcard" data-id="' + b.id + '">' +
-        '<img src="' + b.img + '" alt="' + b.name + '" loading="lazy">' +
-        '<figcaption class="b-kadro"><span class="b-kname">' + b.name + '</span><span class="b-ksc">' + b.sc + '</span>' + rows + '</figcaption>' +
-        '</figure>';
-    }).join('');
-    grid.appendChild(krow);
-    shown += kadros.length;
-  }
-  for (const b of BR){
-    if (b.t === 'kadro') continue;
-    const el = document.createElement('figure');
-    el.className = 'bcard';
-    el.dataset.id = b.id;
-    el.innerHTML =
-      '<img src="assets/broll/' + b.id + '.jpg" alt="Κάδρο ' + b.id + '" loading="lazy">' +
-      '<figcaption class="b-overlay"><span class="b-id">' + b.id + '</span> · <span class="b-loc">' + b.loc + '</span></figcaption>';
-    grid.appendChild(el);
-    shown++;
-  }
-  if (shown === 0){
-    grid.innerHTML = '<p class="nt" style="grid-column:1/-1">Κανένα κάδρο δεν ταιριάζει.</p>';
-  }
-}
-
-render();
-
-// Google Photos lightbox
-const lb = document.createElement('div');
-lb.className = 'gp-full';
-lb.innerHTML = '<img alt=""><button class="gp-close" aria-label="Κλείσιμο">×</button><button class="gp-prev" aria-label="Προηγούμενο">‹</button><button class="gp-next" aria-label="Επόμενο">›</button><div class="gp-info"></div>';
-document.body.appendChild(lb);
-const lbImg = lb.querySelector('img');
-const lbInfo = lb.querySelector('.gp-info');
-let lbList = [], lbIdx = -1;
-function lbShow(){
-  const b = lbList[lbIdx];
-  if (b.t === 'kadro'){
-    lbImg.src = b.img;
-    lbInfo.innerHTML = '<b>' + b.name + ' · ' + b.sc + '</b><br>' + b.info.map(r => r[0] + ': ' + r[1]).join('<br>');
-  } else {
-    lbImg.src = 'assets/broll/' + b.id + '.jpg';
-    lbInfo.innerHTML = '<b>' + b.id + ' · ' + b.loc + '</b> (' + (b.t==='post'?'Post':'Γύρισμα') + ')<br>' + b.lens + ' · ' + b.dur + '<br>' + b.d + '<br>Marker: ' + b.mk;
-  }
-  lb.classList.add('on');
-}
-function lbOpen(id){
-  lbList = BR;
-  lbIdx = lbList.findIndex(b => b.id === id);
-  if (lbIdx >= 0) lbShow();
-}
-function lbClose(){ lb.classList.remove('on'); }
-function lbStep(d){ lbIdx = (lbIdx + d + lbList.length) % lbList.length; lbShow(); }
-lb.querySelector('.gp-close').addEventListener('click', lbClose);
-lb.querySelector('.gp-prev').addEventListener('click', () => lbStep(-1));
-lb.querySelector('.gp-next').addEventListener('click', () => lbStep(1));
-lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
-document.addEventListener('keydown', e => {
-  if (!lb.classList.contains('on')) return;
-  if (e.key === 'Escape') lbClose();
-  else if (e.key === 'ArrowLeft') lbStep(-1);
-  else if (e.key === 'ArrowRight') lbStep(1);
-});
-grid.addEventListener('click', e => {
-  const c = e.target.closest('.bcard');
-  if (c) lbOpen(c.dataset.id);
-});
-
-</script>
-<script>
-// hero parallax
-(function(){
-  const hero = document.querySelector('.hero');
-  const img = hero && hero.querySelector('img');
-  if (!img) return;
-  let ticking = false;
-  function update(){
-    const r = hero.getBoundingClientRect();
-    if (r.bottom <= 0 || r.top >= innerHeight){ ticking = false; return; }
-    const progress = Math.min(1, Math.max(0, -r.top / r.height));
-    const y = (progress - 0.5) * 12;
-    img.style.transform = 'scale(1.2) translateY(' + y + '%)';
-    ticking = false;
-  }
-  function request(){
-    if (!ticking){ ticking = true; requestAnimationFrame(update); }
-  }
-  window.addEventListener('scroll', request, {passive:true});
-  window.addEventListener('resize', request);
-  update();
-})();
-</script>
-<script>
-document.querySelectorAll('.castacc-item').forEach(item => {
-  item.addEventListener('click', () => {
-    document.querySelectorAll('.castacc-item').forEach(i => i.classList.remove('is-active'));
-    item.classList.add('is-active');
-  });
-});
-</script>
-
-<button class="totop" id="totop" aria-label="Επιστροφή στην κορυφή"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
-<script>
-document.getElementById('totop').addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
-</script>
-</body>
-</html>
+374|
+375|<!-- 4. ΠΡΟΓΡΑΜΜΑ -->
+376|<section id="programma"><div class="wrap">
+377|  <h2>Πρόγραμμα και τοποθεσίες</h2>
+378|
+379|  <div class="acc-wrap">
+380|  <div class="acc-list">
+381|  <details class="acc-item">
+382|    <summary class="acc-sum"><span class="acc-ico">+</span>Ημέρα 1 · 08:00-20:00</summary>
+383|    <div class="acc-body">
+384|      <p class="nt" style="margin:0 0 10px">Αμαξοστάσιο, Δημαρχείο, πλατείες, παραλιακό μέτωπο. 4 setups, 11 απαντήσεις.</p>
+385|      <div class="tbl-scroll"><table>
+386|        <thead><tr><th>Από</th><th>Έως</th><th>Τι γυρίζεται</th><th>Σκ.</th></tr></thead>
+387|        <tbody>
+388|          <tr><td class="mono">08:00</td><td class="mono">09:45</td><td>Αμαξοστάσιο, Εργαζόμενος 3 απαντήσεις δίπλα στο όχημα.</td><td>06, 09, 15</td></tr>
+389|          <tr><td class="mono">09:45</td><td class="mono">10:30</td><td>Μετακίνηση και στήσιμο Δημαρχείου.</td><td>setup</td></tr>
+390|          <tr><td class="mono">10:30</td><td class="mono">12:30</td><td>Δήμαρχος, 3 απαντήσεις σε ένα setup.</td><td>02, 11, 17</td></tr>
+391|          <tr><td class="mono">12:30</td><td class="mono">13:15</td><td>Δήμαρχος με στελέχη, εκπαίδευση, cutaways.</td><td>11</td></tr>
+392|          <tr><td class="mono">13:15</td><td class="mono">14:00</td><td>Διάλειμμα.</td><td>-</td></tr>
+393|          <tr><td class="mono">14:00</td><td class="mono">15:30</td><td>Υπεύθυνος Καθαριότητας, 3 απαντήσεις.</td><td>05, 08, 12</td></tr>
+394|          <tr><td class="mono">15:30</td><td class="mono">18:30</td><td>B-roll απόγευμα, χρυσή ώρα στο τέλος.</td><td>04, 13, 18</td></tr>
+395|          <tr><td class="mono">18:45</td><td class="mono">20:00</td><td>Εκπρόσωπος κοινωνίας πολιτών, 2 απαντήσεις.</td><td>03, 14</td></tr>
+396|        </tbody>
+397|      </table></div>
+398|    </div>
+399|  </details>
+400|  <details class="acc-item">
+401|    <summary class="acc-sum"><span class="acc-ico">+</span>Ημέρα 2 · 07:00-19:00</summary>
+402|    <div class="acc-body">
+403|      <p class="nt" style="margin:0 0 10px">Αμαξοστάσιο, δρομολόγιο, EmDoT, πλατείες, παραλιακό. Λειτουργία και τεχνολογία το πρωί.</p>
+404|      <div class="tbl-scroll"><table>
+405|        <thead><tr><th>Από</th><th>Έως</th><th>Τι γυρίζεται</th><th>Σκ.</th></tr></thead>
+406|        <tbody>
+407|          <tr><td class="mono">07:00</td><td class="mono">08:00</td><td>Αμαξοστάσιο πριν τη βάρδια, φυσικός ήχος, ΜΑΠ.</td><td>01</td></tr>
+408|          <tr><td class="mono">08:00</td><td class="mono">10:30</td><td>Πραγματικό δρομολόγιο αποκομιδής, κάδοι, πλοήγηση.</td><td>04, 07, 09, 16</td></tr>
+409|          <tr><td class="mono">10:30</td><td class="mono">12:30</td><td>Παραγωγικός χώρος EmDoT, συναρμολόγηση.</td><td>10</td></tr>
+410|          <tr><td class="mono">12:30</td><td class="mono">13:15</td><td>Διάλειμμα και μετακίνηση.</td><td>-</td></tr>
+411|          <tr><td class="mono">13:15</td><td class="mono">15:00</td><td>EmDoT συνέχεια, εγκατάσταση σε σταθμευμένο όχημα.</td><td>10</td></tr>
+412|          <tr><td class="mono">15:00</td><td class="mono">19:00</td><td>B-roll απόγευμα, πλατείες, παραλιακό, κυκλικό κλείσιμο.</td><td>04, 13, 18</td></tr>
+413|        </tbody>
+414|      </table></div>
+415|    </div>
+416|  </details>
+417|  <details class="acc-item">
+418|    <summary class="acc-sum"><span class="acc-ico">+</span>Προτεινόμενες τοποθεσίες για τις συνεντεύξεις</summary>
+419|    <div class="acc-body">
+420|      <div class="tbl-scroll"><table>
+421|        <thead><tr><th>Πρόσωπο</th><th>Πραγματικός χώρος</th><th>Σκηνές</th><th>Θερμοκρασία</th></tr></thead>
+422|        <tbody>
+423|          <tr><td><b>Δήμαρχος</b></td><td>Αίθουσα Δημοτικού Συμβουλίου, Δημαρχείο (Λ. Κ. Καραμανλή 18, Βούλα)</td><td>02, 11, 17</td><td>4400 K</td></tr>
+424|          <tr><td><b>Υπεύθυνος Καθαριότητας</b></td><td>Χώρος επιχειρησιακής σύσκεψης υπηρεσίας, Δημαρχείο (οθόνη με ήρεμο χάρτη)</td><td>05, 08, 12</td><td>4700 K</td></tr>
+425|          <tr><td><b>Δάσκαλος (Εκπρόσωπος)</b></td><td>2ο Δημοτικό Σχολείο Βούλας (Ασκληπιού &amp; Πλαπούτα 7, Βούλα)</td><td>03, 14</td><td>5600 K</td></tr>
+426|          <tr><td><b>Εργαζόμενος αποκομιδής</b></td><td>Αμαξοστάσιο / στόλος οχημάτων καθαριότητας του Δήμου</td><td>06, 09, 15</td><td>4700-5000 K</td></tr>
+427|        </tbody>
+428|      </table></div>
+429|    </div>
+430|  </details>
+431|  <details class="acc-item">
+432|    <summary class="acc-sum"><span class="acc-ico">+</span>Τοποθεσίες γυρίσματος βάση σεναρίου.</summary>
+433|    <div class="acc-body">
+434|      <p class="lead" style="margin:0 0 10px">Ιδανικά να γίνει ρεπεράζ 1-2 ημέρες πριν το γύρισμα, για να κλειδώσουν οι τελικές τοποθεσίες.</p>
+435|      <div class="tbl-scroll"><table>
+436|        <thead><tr><th>Ζώνη</th><th>Σημείο</th><th>Είδος</th><th>Φως</th><th>Σκηνές</th></tr></thead>
+437|        <tbody>
+438|          <tr><td>Δημαρχείο</td><td>Θεσμικός χώρος (Δήμαρχος)</td><td>ΕΣΩΤ</td><td>Όποια ώρα</td><td>02, 11, 17</td></tr>
+439|          <tr><td>Δημαρχείο</td><td>Αίθουσα συσκέψεων (Υπεύθυνος)</td><td>ΕΣΩΤ</td><td>Όποια ώρα</td><td>05, 08, 12</td></tr>
+440|          <tr><td>Αμαξοστάσιο</td><td>Αμαξοστάσιο καθαριότητας</td><td>ΕΞΩΤ</td><td>Πρωί, πριν τη βάρδια</td><td>01, 06, 09, 15</td></tr>
+441|          <tr><td>Αστικός κορμός</td><td>Πλατεία Ιμίων &amp; Λεωφ. Βασιλέως Παύλου</td><td>ΕΞΩΤ</td><td>Απόγευμα</td><td>04, 13</td></tr>
+442|          <tr><td>Αστικός κορμός</td><td>Πλατεία Νυμφών</td><td>ΕΞΩΤ</td><td>Απόγευμα</td><td>04, 13</td></tr>
+443|          <tr><td>Αστικός κορμός</td><td>Κεντρική Πλατεία Βάρκιζας</td><td>ΕΞΩΤ</td><td>Απόγευμα</td><td>04, 13</td></tr>
+444|          <tr><td>Αστικός κορμός</td><td>Δρόμος, πραγματικό δρομολόγιο</td><td>ΕΞΩΤ</td><td>Πρωί, δρομολόγιο</td><td>04, 07, 09, 16</td></tr>
+445|          <tr><td>Παραλιακό μέτωπο</td><td>Παραλιακό μέτωπο Βουλιαγμένης</td><td>ΕΞΩΤ</td><td>Απόγευμα και δύση</td><td>01, 18</td></tr>
+446|          <tr><td>Παραλιακό μέτωπο</td><td>Παραλία Δημαρχείου, Βούλα</td><td>ΕΞΩΤ</td><td>Απόγευμα</td><td>01, 03</td></tr>
+447|          <tr><td>EmDoT</td><td>Παραγωγικός χώρος EmDoT</td><td>ΕΣΩΤ</td><td>Όποια ώρα</td><td>10</td></tr>
+448|          <tr><td>EmDoT</td><td>Αυλή με σταθμευμένο όχημα</td><td>ΕΞΩΤ</td><td>Μεσημέρι</td><td>07, 10</td></tr>
+449|        </tbody>
+450|      </table></div>
+451|    </div>
+452|  </details>
+453|
+454|  <details class="acc-item">
+455|    <summary class="acc-sum"><span class="acc-ico">+</span>Γενικές οδηγίες</summary>
+456|    <div class="acc-body">
+457|  <p class="lead"><b>Χώρος.</b> Κριτήριο για την επιλογή χώρου είναι το τι κάνει πίσω από τον άνθρωπο που μιλά. Θέλουμε καθαρό φόντο, χωρίς ακαταστασία και χωρίς πολλά αντικείμενα. Ο φωτισμός ομοιόμορφος και φωτεινός, χωρίς περίεργες σκιές και χωρίς παράθυρο πίσω από τον ομιλητή. Ο χώρος να ενισχύει την αισιοδοξία: καθαρές γραμμές, φωτεινά υλικά, ζεστές αποχρώσεις, ένα ανθρώπινο εργασιακό περιβάλλον. Ιδανικά να δημιουργεί αντίθεση με τον συνεντευξιαζόμενο, ώστε να ξεχωρίζει: σε σκούρο χώρο ανοιχτόχρωμα ρούχα, σε φωτεινό χώρο πιο σκούρα. Ο άνθρωπος στο επίκεντρο.</p>
+458|  <p class="lead"><b>Ενδυματολογία.</b> Απλές μονόχρωμες παλέτες, καλά σιδερωμένες, χωρίς λογότυπα και χωρίς έντονα χρώματα. Καθένας φέρνει δύο επιλογές, ώστε να διαλέξουμε πάνω στον χώρο. Χωρίς ψιλά σχέδια, ρίγες, καρό ή πουά. Χωρίς αλλαγή ρούχων ανάμεσα στις λήψεις.</p>
+459|  <p class="lead"><b>Καθαριότητα.</b> Ό,τι φαίνεται στο κάδρο είναι καθαρό την ώρα του γυρίσματος. Οι κάδοι καλά κλειστοί, σκουπισμένοι εξωτερικά, χωρίς σκουπίδια γύρω τους. Τα οχήματα πλυμένα, χωρίς λάδια, σκόνη ή ζημιές. Το συνεργείο φοράει όλα τα προβλεπόμενα, κράνη, γάντια, γιλέκα, καθαρά και πλήρη. Ο χώρος καθαρός, χωρίς κιβώτια, καλώδια, σκούπες ή προσωπικά αντικείμενα στο φόντο. Ο Δήμος δεσμεύεται ότι οχήματα και κάδοι θα πλυθούν την προηγούμενη μέρα.</p>
+460|  <p class="lead"><b>Ήχος.</b> Ο χώρος ήσυχος, μακριά από δρόμο, κλιματιστικά, ψυγεία και ανεμιστήρες. Την ώρα της λήψης κλείνουν τα κλιματιστικά και τα κινητά σιωπηλά.</p>
+461|  <p class="lead"><b>Σταθερότητα ανάμεσα στις συνεντεύξεις.</b> Για να μπουν όλες οι απαντήσεις στην ίδια ταινία, κρατάμε ίδια απόσταση από τον ομιλητή, μηχανή στο ύψος των ματιών, και όσο το δυνατόν σε παρόμοιο φωτισμό. Το βασικό βίντεο είναι 16:9, αλλά φροντίζουμε από το γύρισμα να κόβεται εύκολα σε 9:16: ο άνθρωπος στο κέντρο του κάδρου, τίποτα σημαντικό στις άκρες.</p>
+462|  <p class="lead"><b>Ο άνθρωπος μπροστά στην κάμερα.</b> Πριν γυρίσουμε, εξηγούμε ότι δεν υπάρχει σωστό και λάθος, ότι δεν διαβάζει κείμενο, και ότι θέλουμε τα λόγια με τον δικό του τρόπο. Μια μικρή παύση πριν από κάθε απάντηση δίνει ανάσα στην εικόνα. Στην απάντηση περιλαμβάνεται η ερώτηση, ώστε να στέκει μόνη της μέσα στην ταινία. Παράδειγμα:</p>
+463|  <p class="lead"><b>Ερώτηση:</b> Τι άλλαξε για τη γειτονιά;</p>
+464|  <p class="lead"><b>Απάντηση που δεν στέκει:</b> Είναι πιο καθαρά.</p>
+465|  <p class="lead"><b>Απάντηση που θέλουμε:</b> Για τη γειτονιά, αυτό που άλλαξε είναι ότι ο δρόμος μένει καθαρός όλη μέρα, γιατί πάμε στους κάδους πριν γεμίσουν.</p>
+466|  <p class="lead"><b>Τι δεν μπαίνει στο κάδρο.</b> Λογότυπα άλλων εταιριών, πινακίδες οχημάτων, στοιχεία πολιτών και προσωπικά δεδομένα σε οθόνες. Τα λογότυπα Δήμου, EmDoT και Telekom μπαίνουν μόνο με έγκριση του πελάτη.</p>
+467|
+468|  </div>
+469|</details>
+470|<details class="acc-item">
+471|  <summary class="acc-sum"><span class="acc-ico">+</span>Τι ζητάμε από τον Δήμο</summary>
+472|  <div class="acc-body">
+473|  <p class="lead"><b>Τοποθεσίες, άμεσα.</b> Ο Δήμος να προτείνει το συντομότερο τα σημεία γυρίσματος και τις εξωτερικές λήψεις, ώστε να κλειδώσουν το πρόγραμμα και το ρεπεράζ. Χωρίς αυτά το πρόγραμμα μένει ανοιχτό. Για τις συνεντεύξεις προτείνουμε το δημαρχείο, σε αίθουσα με καθαρό φόντο, ή κάποιο κτήριο της περιοχής με ιδιαίτερο αρχιτεκτονικό ενδιαφέρον.</p>
+474|  <p class="lead"><b>Άνθρωπος επαφής.</b> Ένα πρόσωπο, με όνομα, κινητό και email, που συντονίζει τα πάντα πριν και κατά τη διάρκεια των γυρισμάτων.</p>
+475|  <p class="lead"><b>Πρόσωπα στην κάμερα.</b> Ονόματα και ιδιότητες των τεσσάρων ομιλητών, με σωστή ορθογραφία, για τα ονόματα στην εικόνα.</p>
+476|  <p class="lead"><b>Έγκριση ερωτήσεων.</b> Ο Δήμος να εγκρίνει τις ερωτήσεις, ώστε οι ομιλητές να τις ξέρουν από πριν.</p>
+477|  <p class="lead"><b>Άδειες.</b> Να δοθούν όλες οι απαραίτητες άδειες.</p>
+478|  <p class="lead"><b>Απορριμματοφόρο και συνεργείο.</b> Ένα όχημα με δύο έως τέσσερα άτομα, σε συγκεκριμένη ώρα και δρομολόγιο, για τις λήψεις αποκομιδής.</p>
+479|  <p class="lead"><b>Λογότυπα.</b> Τα επίσημα λογότυπα του Δήμου σε υψηλή ανάλυση, για το τέλος του βίντεο.</p>
+480|  <p class="lead"><b>Ενημέρωση πολιτών.</b> Γραπτή ενημέρωση καταστημάτων και κατοίκων στους δρόμους που θα γυρίσουν.</p>
+481|  <p class="lead"><b>Την ημέρα του γυρίσματος.</b> Ο άνθρωπος επαφής παρών όλη τη διάρκεια. Κάθε ομιλητής στο σημείο μία ώρα νωρίτερα από τη λήψη του.</p>
+482|  <p class="lead"><b>Ρεπεράζ με τον Δήμο.</b> Προαιρετικό: ρεπεράζ μαζί με άνθρωπο του Δήμου για το κλείδωμα τοποθεσιών, ωρών και φωτός.</p>
+483|  </div>
+484|</details>
+485|</div>
+486|</div>
+487|</div></section>
+488|
+489|
+490|
+491|<!-- 6. CASTING -->
+492|<section id="casting"><div class="wrap">
+493|  <h2>Casting</h2>
+494|  <div class="castacc">
+495|    <div class="castacc-item">
+496|      <div class="castacc-imgwrap">
+497|        <img class="castacc-img" src="assets/cast/cast-01-dimarchos.jpg" alt="Sheet Δημάρχου" loading="lazy">
+498|        <div class="castacc-cap"><div class="castacc-name">Δήμαρχος</div><div class="castacc-title">Γρηγόρης Κωνσταντέλλος</div></div>
+499|      </div>
+500|      <div class="castacc-panel">
+501|        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">Γύρω στα 60</span></div>
+502|        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Εύρωστος, γεμάτος κορμός</span></div>
+503|        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Στρογγυλό, λεπτά γυαλιά χωρίς σκελετό</span></div>
+504|        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Σκούρο σακάκι, ανοιχτό πουκάμισο</span></div>
+505|        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Κανένα. Είναι ο ίδιος.</span></div>
+506|      </div>
+507|    </div>
+508|    <div class="castacc-item">
+509|      <div class="castacc-imgwrap">
+510|        <img class="castacc-img" src="assets/cast/cast-02-ypefthynos.jpg" alt="Sheet Υπευθύνου" loading="lazy">
+511|        <div class="castacc-cap"><div class="castacc-name">Υπεύθυνος</div><div class="castacc-title">Λειτουργός υπηρεσίας</div></div>
+512|      </div>
+513|      <div class="castacc-panel">
+514|        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">45-50</span></div>
+515|        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Μέσος, γεμάτος</span></div>
+516|        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Σκούρα μαλλιά με γκρι, αξύριστη όψη</span></div>
+517|        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Σκούρο μπλε πουκάμισο εργασίας</span></div>
+518|        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Άνδρας 40-50, καθαρή άρθρωση</span></div>
+519|      </div>
+520|    </div>
+521|    <div class="castacc-item">
+522|      <div class="castacc-imgwrap">
+523|        <img class="castacc-img" src="assets/cast/cast-03-ergazomenos.jpg" alt="Sheet Εργαζομένου" loading="lazy">
+524|        <div class="castacc-cap"><div class="castacc-name">Εργαζόμενος</div><div class="castacc-title">Αποκομιδή</div></div>
+525|      </div>
+526|      <div class="castacc-panel">
+527|        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">30-45</span></div>
+528|        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Λιτός, αδύνατος</span></div>
+529|        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Γωνιώδες, κοντό σκούρο γένι</span></div>
+530|        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Στολή εργασίας, ανακλαστικό γιλέκο, γάντια</span></div>
+531|        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Άνδρας 30-45, λαϊκός, καθημερινός</span></div>
+532|      </div>
+533|    </div>
+534|    <div class="castacc-item">
+535|      <div class="castacc-imgwrap">
+536|        <img class="castacc-img" src="assets/cast/cast-04-daskalos.jpg" alt="Sheet Δασκάλου" loading="lazy">
+537|        <div class="castacc-cap"><div class="castacc-name">Δάσκαλος</div><div class="castacc-title">Εκπρόσωπος πολιτών</div></div>
+538|      </div>
+539|      <div class="castacc-panel">
+540|        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">40-55</span></div>
+541|        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Μέσος</span></div>
+542|        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Ωοειδές, ζεστό βλέμμα</span></div>
+543|        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Καθημερινό πουκάμισο ή ζακέτα</span></div>
+544|        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Άνδρας 40-55, ζεστός, μετρημένος</span></div>
+545|      </div>
+546|    </div>
+547|    <div class="castacc-item">
+548|      <div class="castacc-imgwrap">
+549|        <img class="castacc-img" src="assets/cast/cast-05-daskala.jpg" alt="Sheet Δασκάλας, εναλλακτική εκδοχή" loading="lazy">
+550|        <div class="castacc-cap"><div class="castacc-name">Δασκάλα</div><div class="castacc-title">Εναλλακτική εκδοχή · Εκπρόσωπος πολιτών</div></div>
+551|      </div>
+552|      <div class="castacc-panel">
+553|        <div class="castacc-row"><span class="k">Ηλικία</span><span class="v">35-45</span></div>
+554|        <div class="castacc-row"><span class="k">Σώμα</span><span class="v">Μέτριο</span></div>
+555|        <div class="castacc-row"><span class="k">Πρόσωπο</span><span class="v">Μεσογειακή εμφάνιση, ζεστό βλέμμα</span></div>
+556|        <div class="castacc-row"><span class="k">Ρούχα</span><span class="v">Λιτή ενδυμασία, ζακέτα ή μπλούζα</span></div>
+557|        <div class="castacc-row"><span class="k">Κάστινγκ</span><span class="v">Γυναίκα 35-45, εκπαιδευτικός, ζεστή και σίγουρη παρουσία</span></div>
+558|      </div>
+559|    </div>
+560|  </div>
+561|</div></section>
+562|
+563|<!-- 7. ΠΛΑΝΑ B-ROLL -->
+564|<section id="broll"><div class="wrap">
+565|  <h2>Storyboard</h2>
+566|  <div class="broll-grid" id="broll-grid"></div>
+567|</div></section>
+568|<!-- 8. ΜΟΥΣΙΚΗ -->
+569|<section id="mousiki"><div class="wrap">
+570|  <h2>Μουσική</h2>
+571|  <div class="mact">
+572|    <div class="mact-h"><b>Πράξη Α</b><span>Σκηνές 01 έως 06</span></div>
+573|    <div class="mtr">
+574|      <div class="mt"><div class="a">Flint</div><div class="b">what the first sip of coffee in the morning feels like</div></div>
+575|      <div class="md">1:10</div>
+576|      <audio controls preload="none" src="music/flint.mp3"></audio>
+577|    </div>
+578|    <div class="mtr">
+579|      <div class="mt"><div class="a">Jon Gegelman</div><div class="b">Morning Fog</div></div>
+580|      <div class="md">3:32</div>
+581|      <audio controls preload="none" src="music/morning-fog.mp3"></audio>
+582|    </div>
+583|  </div>
+584|  <div class="mact">
+585|    <div class="mact-h"><b>Πράξη Β</b><span>Σκηνές 07 έως 11</span></div>
+586|    <div class="mtr">
+587|      <div class="mt"><div class="a">Eliho</div><div class="b">Convergence Point</div></div>
+588|      <div class="md">2:06</div>
+589|      <audio controls preload="none" src="music/convergence-point.mp3"></audio>
+590|    </div>
+591|    <div class="mtr">
+592|      <div class="mt"><div class="a">Magiksolo</div><div class="b">Opening</div></div>
+593|      <div class="md">2:10</div>
+594|      <audio controls preload="none" src="music/opening.mp3"></audio>
+595|    </div>
+596|    <div class="mtr">
+597|      <div class="mt"><div class="a">Raz Burg</div><div class="b">District Zero</div></div>
+598|      <div class="md">2:19</div>
+599|      <audio controls preload="none" src="music/district-zero.mp3"></audio>
+600|    </div>
+601|  </div>
+602|  <div class="mact">
+603|    <div class="mact-h"><b>Πράξη Γ</b><span>Σκηνές 12 έως 19</span></div>
+604|    <div class="mtr">
+605|      <div class="mt"><div class="a">Peaks Valleys</div><div class="b">Mountains and Valleys</div></div>
+606|      <div class="md">3:42</div>
+607|      <audio controls preload="none" src="music/mountains-valleys.mp3"></audio>
+608|    </div>
+609|    <div class="mtr">
+610|      <div class="mt"><div class="a">Roberto Prado</div><div class="b">Deep Dive</div></div>
+611|      <div class="md">2:21</div>
+612|      <audio controls preload="none" src="music/deep-dive.mp3"></audio>
+613|    </div>
+614|    <div class="mtr">
+615|      <div class="mt"><div class="a">Steven Beddall</div><div class="b">Departure - Creative Cut - Slowed</div></div>
+616|      <div class="md">2:54</div>
+617|      <audio controls preload="none" src="music/departure.mp3"></audio>
+618|    </div>
+619|  </div>
+620|
+621|</div></section>
+622|<footer><div class="wrap">
+623|  <div class="fline">© 2026, Atheaton Media, All Rights Reserved</div>
+624|</div></footer>
+625|
+626|<script>
+627|// B-roll data: id, scene, location, lens, duration (΄΄ or Post/reuse), marker, description
+628|const BR = [
+629| {id:"K1",t:"kadro",img:"assets/frames/frame-01-dimarchos.jpg",name:"Α · Δήμαρχος",sc:"Σκ. 02, 11, 17",info:[["Χώρος","Αίθουσα Δημοτικού Συμβουλίου"],["Φακός","NIKKOR 80-200 @ ~100 mm, f/2.8"],["Απόσταση","2,5 m"],["Κάδρο","Μεσαίο κοντινό, ύψος ματιών"],["Φως","Panel softbox 35-40°, 4400 K"]]},
+630| {id:"K2",t:"kadro",img:"assets/frames/frame-02-ypefthynos.jpg",name:"Β · Υπεύθυνος",sc:"Σκ. 05, 08, 12",info:[["Χώρος","Σύσκεψη υπηρεσίας, οθόνη χάρτη"],["Φακός","NIKKOR 80-200 @ ~85 mm"],["Απόσταση","2,5-3 m"],["Κάδρο","Μεσαίο, πιο ανοιχτό από το Α"],["Φως","Πιο φωτεινό, μετωπικό, 4700 K"]]},
+631| {id:"K3",t:"kadro",img:"assets/frames/frame-04-daskalos.jpg",name:"Γ · Δάσκαλος",sc:"Σκ. 03, 14",info:[["Χώρος","2ο Δ.Σ. Βούλας, φωτεινή αίθουσα"],["Φακός","NIKKOR 80-200 @ ~85 mm"],["Απόσταση","1,8-2,2 m"],["Κάδρο","Μεσαίο, αέρας πάνω από το κεφάλι"],["Φως","Panel 5600 K, φως ημέρας"]]},
+632| {id:"K4",t:"kadro",img:"assets/frames/frame-03-ergazomenos.jpg",name:"Δ · Εργαζόμενος",sc:"Σκ. 06, 09, 15",info:[["Χώρος","Αμαξοστάσιο, στόλος οχημάτων"],["Φακός","NIKKOR 80-200 @ ~100 mm"],["Απόσταση","2-2,5 m"],["Κάδρο","Μεσαίο κοντινό, βιομηχανικό βάθος"],["Φως","Σκληρό κλειδί, 4700-5000 K"]]},
+633| {id:"01A",sc:"01",loc:"Παραλιακό μέτωπο Βουλιαγμένης",lens:"Drone · 24mm · EWS",dur:"20΄",mk:"BR · Παραλιακό άνοιγμα",d:"Δύση, ο ήλιος στο νερό, ακτογραμμή σε μία γραμμή. Άνοιγμα.",t:"shoot"},
+634| {id:"01B",sc:"01",loc:"Παραλία Δημαρχείου, Βούλα",lens:"A · 35mm · WS",dur:"10΄",mk:"ΑΦ 01",d:"Σύντομο σταθερό πλάνο της ακτής.",t:"shoot"},
+635| {id:"01C",sc:"01",loc:"Αστικός κορμός",lens:"A · 50mm · MS",dur:"12΄",mk:"ΑΦ 01",d:"Κατοικίες, εμπορικός δρόμος, άνθρωποι που ξεκινούν.",t:"shoot"},
+636| {id:"01D",sc:"01",loc:"Αμαξοστάσιο",lens:"A · 35mm · WS",dur:"12΄",mk:"BR · Παραλιακό άνοιγμα",d:"Εργαζόμενοι με ΜΑΠ, έλεγχος οχήματος, tablet.",t:"shoot"},
+637| {id:"02D",sc:"02",loc:"Δημαρχείο, δημόσιος χώρος",lens:"A · 50mm · MS",dur:"12΄",mk:"ΣΥΝ 02",d:"Δήμαρχος σε δημόσιο χώρο, επαφή με πολίτες.",t:"shoot"},
+638| {id:"02E",sc:"02",loc:"Παραλιακό μέτωπο, 3 ενότητες",lens:"Drone · 24mm · EWS",dur:"20΄",mk:"ΣΥΝ 02",d:"Ευρείες των τριών δημοτικών ενοτήτων.",t:"shoot"},
+639| {id:"03D",sc:"03",loc:"Δημόσιος χώρος, πλατεία του Δήμου",lens:"A · 35mm · MS",dur:"2΄",mk:"BR · Δήμαρχος δημόσια",d:"Δημόσιος χώρος με φυσική κίνηση ανθρώπων. Γέφυρα μετάβασης μετά τον Δήμαρχο.",t:"shoot"},
+640| {id:"04A",sc:"04",loc:"Δρόμος, δρομολόγιο",lens:"A · 200mm · WS",dur:"12΄",mk:"ΑΦ 02",d:"Απορριμματοφόρο μετωπικό με συμπίεση.",t:"shoot"},
+641| {id:"04B",sc:"04",loc:"Δρόμος, κάδοι",lens:"A · 35mm · WS · low",dur:"12΄",mk:"ΑΦ 02",d:"Κάδοι με διαφορετική πληρότητα σε σειρά.",t:"shoot"},
+642| {id:"04C",sc:"04",loc:"Πλατεία Ιμίων & Λεωφ. Βασ. Παύλου",lens:"A · 50mm · MS",dur:"12΄",mk:"ΑΦ 02",d:"Πλατεία ως γεωμετρία, πεζός διαγώνια.",t:"shoot"},
+643| {id:"04D",sc:"04",loc:"Πλατεία Νυμφών",lens:"A · 50mm · MS",dur:"12΄",mk:"ΑΦ 02",d:"Πυκνή καθημερινή κίνηση.",t:"shoot"},
+644| {id:"04E",sc:"04",loc:"Κεντρική Πλατεία Βάρκιζας",lens:"A · 35mm · gimbal · WS",dur:"12΄",mk:"ΑΦ 02",d:"Παραλιακή ενότητα, αργό πέρασμα.",t:"shoot"},
+645| {id:"04F",sc:"04",loc:"Post · γραφικά",lens:"Γραφικά χάρτη",dur:"Post",mk:"ΓΡΑΦ 04F",d:"Λιτός χάρτης των τριών ενοτήτων.",t:"post"},
+646| {id:"07A",sc:"07",loc:"Δρόμος, κάδος",lens:"A · 85mm macro · ECU",dur:"9΄",mk:"BR · Σκ.06-07",d:"Αισθητήρας πληρότητας στο καπάκι.",t:"shoot"},
+647| {id:"07B",sc:"07",loc:"EmDoT, αυλή",lens:"A · 50mm · CU",dur:"9΄",mk:"BR · Σκ.06-07",d:"Τηλεματική μονάδα στο όχημα.",t:"shoot"},
+648| {id:"07C",sc:"07",loc:"Δρόμος, καμπίνα",lens:"A · 35mm · POV · CU",dur:"9΄",mk:"ΑΦ 03",d:"Tablet στην καμπίνα του οχήματος.",t:"shoot"},
+649| {id:"07D",sc:"07",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΓΡΑΦ 07D",d:"Cloud πλατφόρμα, όχι κινηματογράφηση οθόνης.",t:"post"},
+650| {id:"07E",sc:"07",loc:"Post · γραφικά",lens:"Γραφικά σύνδεσης",dur:"Post",mk:"ΓΡΑΦ 07E",d:"Σύνδεση κάδου-οχήματος-κέντρου.",t:"post"},
+651| {id:"07F",sc:"07",loc:"Δρόμος, δρομολόγιο",lens:"A · τηλεφακός · WS",dur:"12΄",mk:"ΑΦ 03",d:"Χορογραφία στάσης, το πλήρωμα αδειάζει τον κάδο.",t:"shoot"},
+652| {id:"08C",sc:"08",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΣΥΝ 08",d:"Cutaway πλατφόρμας, δημιουργία δρομολογίου.",t:"post"},
+653| {id:"09D",sc:"09",loc:"Δρόμος, δρομολόγιο",lens:"A · 35mm · gimbal · MS",dur:"12΄",mk:"ΣΥΝ 09",d:"Πλοήγηση, προσέγγιση κάδου.",t:"shoot"},
+654| {id:"09E",sc:"09",loc:"Δρόμος, δρομολόγιο",lens:"A · τηλεφακός · WS",dur:"12΄",mk:"ΣΥΝ 09",d:"Συντονισμός οδηγού και πληρώματος.",t:"shoot"},
+655| {id:"10A",sc:"10",loc:"EmDoT, παραγωγικός χώρος",lens:"A · 85mm macro · ECU",dur:"9΄",mk:"BR · Σκ.09-10",d:"Χέρια τεχνικού σε συναρμολόγηση αισθητήρα.",t:"shoot"},
+656| {id:"10B",sc:"10",loc:"EmDoT",lens:"A · 50mm · CU",dur:"9΄",mk:"ΑΦ 04",d:"Τοποθέτηση RFID tag και reader.",t:"shoot"},
+657| {id:"10C",sc:"10",loc:"EmDoT",lens:"A · 50mm · CU",dur:"9΄",mk:"ΑΦ 04",d:"Τηλεματική μονάδα και load cells στον πάγκο.",t:"shoot"},
+658| {id:"10D",sc:"10",loc:"EmDoT",lens:"A · 35mm · MS",dur:"9΄",mk:"ΑΦ 04",d:"Τεχνικός έλεγχος, παραμετροποίηση.",t:"shoot"},
+659| {id:"10E",sc:"10",loc:"EmDoT, αυλή",lens:"A · 35mm · MS",dur:"12΄",mk:"BR · Σκ.09-10",d:"Εγκατάσταση σε σταθμευμένο όχημα, έλεγχος μετάδοσης.",t:"shoot"},
+660| {id:"10F",sc:"10",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΓΡΑΦ 10F",d:"Λογισμικό, χάρτης κάδων, πρόβλεψη.",t:"post"},
+661| {id:"10G",sc:"10",loc:"EmDoT",lens:"A · 85mm macro · ECU · high",dur:"9΄",mk:"ΑΦ 04",d:"Υφή πάγκου, εργαλεία, καθαρή διάταξη.",t:"shoot"},
+662| {id:"11D",sc:"11",loc:"Δημαρχείο",lens:"A · 35mm · MS",dur:"12΄",mk:"ΣΥΝ 11",d:"Δήμαρχος με στελέχη της υπηρεσίας.",t:"shoot"},
+663| {id:"11E",sc:"11",loc:"Δημαρχείο, αίθουσα",lens:"A · 50mm · MCU",dur:"12΄",mk:"ΣΥΝ 11",d:"Εκπαίδευση χειριστών.",t:"shoot"},
+664| {id:"11F",sc:"11",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΣΥΝ 11",d:"Προετοιμασία δρομολογίου, πλατφόρμα στο πεδίο.",t:"post"},
+665| {id:"11G",sc:"11",loc:"Δρόμος, δρομολόγιο",lens:"A · τηλεφακός · WS",dur:"12΄",mk:"ΣΥΝ 11",d:"Πραγματική αποκομιδή, το όχημα εκτελεί τη συλλογή.",t:"shoot"},
+666| {id:"12D",sc:"12",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΣΥΝ 12",d:"Ολοκληρωμένο δρομολόγιο στην οθόνη.",t:"post"},
+667| {id:"13A",sc:"13",loc:"Δρόμος, κάδος βιοαποβλήτων",lens:"A · 50mm · CU · low",dur:"9΄",mk:"ΑΦ 05",d:"Καφέ κάδος, χωριστή συλλογή βιοαποβλήτων.",t:"shoot"},
+668| {id:"13C",sc:"13",loc:"Εμπορικός δρόμος, καθημερινότητα",lens:"A · 50mm · MS",dur:"4,5΄",mk:"ΑΦ 05",d:"Καθημερινότητα της πόλης, άνθρωποι που κινούνται. Συμπληρώνει τη σκηνή 13.",t:"shoot"},
+669| {id:"14D",sc:"14",loc:"Δρόμος",lens:"A · 50mm · MS",dur:"10΄",mk:"ΣΥΝ 14",d:"Καθαρό πεζοδρόμιο, φυσική κίνηση.",t:"shoot"},
+670| {id:"14E",sc:"14",loc:"Δρόμος, μετά την αποκομιδή",lens:"A · 50mm · MS",dur:"10΄",mk:"ΣΥΝ 14",d:"Φυσική στιγμή του πληρώματος.",t:"shoot"},
+671| {id:"14F",sc:"14",loc:"Post · screen capture",lens:"Screen capture",dur:"Post",mk:"ΣΥΝ 14",d:"Ένδειξη ολοκλήρωσης στην εφαρμογή.",t:"post"},
+672| {id:"16A",sc:"16",loc:"Δρόμος, δρομολόγιο",lens:"A · τηλεφακός · WS",dur:"12΄",mk:"BR · Σκ.15-16",d:"Το όχημα σε δρομολόγιο.",t:"shoot"},
+673| {id:"16B",sc:"16",loc:"Αστικός κορμός",lens:"A · 35mm · WS",dur:"10΄",mk:"BR · Σκ.15-16",d:"Γειτονιά, κατοικίες.",t:"shoot"},
+674| {id:"17D",sc:"17",loc:"Post · γραφικά",lens:"Γραφικά χάρτη",dur:"Post",mk:"ΓΡΑΦ 17D",d:"Χάρτης Δήμος, Ελλάδα, Ευρώπη.",t:"post"},
+675| {id:"17E",sc:"17",loc:"Δημαρχείο, γραφείο υπηρεσίας",lens:"A · 35mm · MS",dur:"reuse",mk:"ΣΥΝ 17",d:"Στελέχη της υπηρεσίας (reuse 11D).",t:"shoot"},
+676| {id:"17F",sc:"17",loc:"Δρόμος, κάδος βιοαποβλήτων",lens:"A · 50mm · CU · low",dur:"reuse",mk:"ΣΥΝ 17",d:"Διαλογή στην πηγή (reuse 13A).",t:"shoot"},
+677| {id:"18A",sc:"18",loc:"Παραλιακό μέτωπο Βουλιαγμένης",lens:"Drone · 24mm · EWS",dur:"20΄",mk:"BR 18A",d:"Δύση, κυκλικό κλείσιμο όπως το άνοιγμα.",t:"shoot"}
+678|];
+679|
+680|const grid = document.getElementById('broll-grid');
+681|
+682|function render(){
+683|  grid.innerHTML = '';
+684|  let shown = 0;
+685|  const kadros = BR.filter(b => b.t === 'kadro');
+686|  if (kadros.length){
+687|    const krow = document.createElement('div');
+688|    krow.className = 'b-kadro-row';
+689|    krow.innerHTML = kadros.map(b => {
+690|      const rows = b.info.map(r => '<div class="b-krow"><span class="kk">' + r[0] + '</span><span class="kv">' + r[1] + '</span></div>').join('');
+691|      return '<figure class="bcard" data-id="' + b.id + '">' +
+692|        '<img src="' + b.img + '" alt="' + b.name + '" loading="lazy">' +
+693|        '<figcaption class="b-kadro"><span class="b-kname">' + b.name + '</span><span class="b-ksc">' + b.sc + '</span>' + rows + '</figcaption>' +
+694|        '</figure>';
+695|    }).join('');
+696|    grid.appendChild(krow);
+697|    shown += kadros.length;
+698|  }
+699|  for (const b of BR){
+700|    if (b.t === 'kadro') continue;
+701|    const el = document.createElement('figure');
+702|    el.className = 'bcard';
+703|    el.dataset.id = b.id;
+704|    el.innerHTML =
+705|      '<img src="assets/broll/' + b.id + '.jpg" alt="Κάδρο ' + b.id + '" loading="lazy">' +
+706|      '<figcaption class="b-overlay"><span class="b-id">' + b.id + '</span> · <span class="b-loc">' + b.loc + '</span></figcaption>';
+707|    grid.appendChild(el);
+708|    shown++;
+709|  }
+710|  if (shown === 0){
+711|    grid.innerHTML = '<p class="nt" style="grid-column:1/-1">Κανένα κάδρο δεν ταιριάζει.</p>';
+712|  }
+713|}
+714|
+715|render();
+716|
+717|// Google Photos lightbox
+718|const lb = document.createElement('div');
+719|lb.className = 'gp-full';
+720|lb.innerHTML = '<img alt=""><button class="gp-close" aria-label="Κλείσιμο">×</button><button class="gp-prev" aria-label="Προηγούμενο">‹</button><button class="gp-next" aria-label="Επόμενο">›</button><div class="gp-info"></div>';
+721|document.body.appendChild(lb);
+722|const lbImg = lb.querySelector('img');
+723|const lbInfo = lb.querySelector('.gp-info');
+724|let lbList = [], lbIdx = -1;
+725|function lbShow(){
+726|  const b = lbList[lbIdx];
+727|  if (b.t === 'kadro'){
+728|    lbImg.src = b.img;
+729|    lbInfo.innerHTML = '<b>' + b.name + ' · ' + b.sc + '</b><br>' + b.info.map(r => r[0] + ': ' + r[1]).join('<br>');
+730|  } else {
+731|    lbImg.src = 'assets/broll/' + b.id + '.jpg';
+732|    lbInfo.innerHTML = '<b>' + b.id + ' · ' + b.loc + '</b> (' + (b.t==='post'?'Post':'Γύρισμα') + ')<br>' + b.lens + ' · ' + b.dur + '<br>' + b.d + '<br>Marker: ' + b.mk;
+733|  }
+734|  lb.classList.add('on');
+735|}
+736|function lbOpen(id){
+737|  lbList = BR;
+738|  lbIdx = lbList.findIndex(b => b.id === id);
+739|  if (lbIdx >= 0) lbShow();
+740|}
+741|function lbClose(){ lb.classList.remove('on'); }
+742|function lbStep(d){ lbIdx = (lbIdx + d + lbList.length) % lbList.length; lbShow(); }
+743|lb.querySelector('.gp-close').addEventListener('click', lbClose);
+744|lb.querySelector('.gp-prev').addEventListener('click', () => lbStep(-1));
+745|lb.querySelector('.gp-next').addEventListener('click', () => lbStep(1));
+746|lb.addEventListener('click', e => { if (e.target === lb) lbClose(); });
+747|document.addEventListener('keydown', e => {
+748|  if (!lb.classList.contains('on')) return;
+749|  if (e.key === 'Escape') lbClose();
+750|  else if (e.key === 'ArrowLeft') lbStep(-1);
+751|  else if (e.key === 'ArrowRight') lbStep(1);
+752|});
+753|grid.addEventListener('click', e => {
+754|  const c = e.target.closest('.bcard');
+755|  if (c) lbOpen(c.dataset.id);
+756|});
+757|
+758|</script>
+759|<script>
+760|// hero parallax
+761|(function(){
+762|  const hero = document.querySelector('.hero');
+763|  const img = hero && hero.querySelector('img');
+764|  if (!img) return;
+765|  let ticking = false;
+766|  function update(){
+767|    const r = hero.getBoundingClientRect();
+768|    if (r.bottom <= 0 || r.top >= innerHeight){ ticking = false; return; }
+769|    const progress = Math.min(1, Math.max(0, -r.top / r.height));
+770|    const y = (progress - 0.5) * 12;
+771|    img.style.transform = 'scale(1.2) translateY(' + y + '%)';
+772|    ticking = false;
+773|  }
+774|  function request(){
+775|    if (!ticking){ ticking = true; requestAnimationFrame(update); }
+776|  }
+777|  window.addEventListener('scroll', request, {passive:true});
+778|  window.addEventListener('resize', request);
+779|  update();
+780|})();
+781|</script>
+782|<script>
+783|document.querySelectorAll('.castacc-item').forEach(item => {
+784|  item.addEventListener('click', () => {
+785|    document.querySelectorAll('.castacc-item').forEach(i => i.classList.remove('is-active'));
+786|    item.classList.add('is-active');
+787|  });
+788|});
+789|</script>
+790|
+791|<button class="totop" id="totop" aria-label="Επιστροφή στην κορυφή"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+792|<script>
+793|document.getElementById('totop').addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+794|</script>
+795|</body>
+796|</html>
